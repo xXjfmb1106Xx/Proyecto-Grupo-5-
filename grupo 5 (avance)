@@ -1,5 +1,5 @@
-usuarios = {"test@gmail.com" : "qwerty",
-    
+base_datos = {
+    "test@gmail.com" : "qwerty"
 }
 peliculas_en_cartelera_y_su_duracion = {
     "Fight Club" : 2.19,
@@ -18,32 +18,32 @@ peliculas_en_cartelera_y_su_duracion = {
 }
 hora_y_sillas_disponibles_sala1 = {
     11 : 96,
-    1.05 : 96,
-    3 : 96,
-    5.10 : 96,
-    6.55 : 96 
+    13.05 : 96,
+    15 : 96,
+    17.10 : 96,
+    18.55 : 96 
 }
 hora_y_sillas_disponibles_sala2 = {
     11 : 96,
     12.45 : 96,
-    3 : 96,
-    5.45 : 96,
-    8.25 : 96 
+    15: 96,
+    17.45 : 96,
+    20.25 : 96 
 }
 hora_y_sillas_disponibles_sala3 = {
     11 : 96,
-    2.15 : 96,
-    5.20 : 96,
-    8.10 : 96,
+    14.15 : 96,
+    17.20 : 96,
+    20.10 : 96,
     6.55 : 96 
 }
 hora_y_sillas_disponibles_sala4 = {
     11 : 96,
-    1.05 : 96,
-    3.25 : 96,
-    5.35 : 96,
-    8.10 : 96,
-    11.10 : 96
+    13.05 : 96,
+    15.25 : 96,
+    17.35 : 96,
+    20.10 : 96,
+    23.10 : 96
 }
 salas_y_sus_horarios = {
     "sala_1" : hora_y_sillas_disponibles_sala1,
@@ -51,88 +51,253 @@ salas_y_sus_horarios = {
     "sala_3" : hora_y_sillas_disponibles_sala3,
     "sala_4" : hora_y_sillas_disponibles_sala4 
 }
-#diccionario individual de las horas en las que estan disponibles cada pelicula y en que sala para facilitar el mostrarlos en interfaz
+# diccionario individual de las horas en las que estan disponibles cada pelicula y en que sala para facilitar el mostrarlos en interfaz
 Fight_Club = { 
-    5.35 : "sala_1",
-    6.55 : "sala_4" 
+    17.35 : "sala_1",
+    18.55 : "sala_4" 
 }
-For_F1 = {
-    5.20 : "sala_3"
+F1 = {
+    17.20 : "sala_3"
 }
-Destino_Final_bloodlines = { 
-    1.05 : "sala_1" ,
-    8.25 : "sala_2 "
+Destino_Final = { 
+    13.05 : "sala_1" ,
+    20.25 : "sala_2 "
 }
 El_Lobo_de_Wall_Street = {
-    8.10 : "sala_4"
+    20.10 : "sala_4"
 }
 Oppenheimer = {
     11 : "sala_3"
 }
 Barbie = {
-    3 : "sala_1", 3.25 : "sala_4"
+    15 : "sala_1", 3.25 : "sala_4"
 }
-Interestelar = {
-    2.15 : "sala_3"
+interestelar = {
+    14.15 : "sala_3"
 }
 No_Mires_Arriba = { 
-    5.45 : "sala_2"
+    17.45 : "sala_2"
 }
 Birdbox_a_ciegas = {
     12.45 : "sala_2"
 }
 Scary_Movie = {
     11 : "sala_ 2",
-    8.10 : "sala_3" 
+    20.10 : "sala_3" 
 }
 Terrifier = {
     1.05 : "sala_4"
 }
 El_Resplandor = { 
-    3 : "sala_2"
+    15 : "sala_2"
 }
 Sonic_3 = { 
     11 : "sala_1",
     11 : "sala_4"
 }
 
-# Interfaz que verá el usuario cuando entra a la pagina 
-print(""" ¡Bienvenido a CineMundo! \n 
+# Inte
+while True:
+    print(""" ¡Bienvenido a CineMundo! \n 
     ====== MENÚ ====== \n 
     1. Iniciar sesion.  \n  
     2. Crear cuenta.\n
     3. Salir. \n """)
 
-opcion = input("Ingrese una de las opciones: ")
-
-while True:
+    opcion = input("Ingrese una de las opciones: ")
     if opcion == "1":
         usuario = input("ingrese su correo: ")
-        if usuario in usuarios:
+        if usuario in base_datos:
             password = input("ingrese su contraseña: ")
-            while password != usuarios[usuario]:
+            while password != base_datos[usuario]:
                 print("contraseña incorrecta")
                 password = input("vuelva a ingresar su contraseña: ")
             print("Inicio de sesión exitoso.")
             break
         else:
             print("usuario incorrecto vuelva ha ingresar su usuario")
-            while usuario not in usuarios:
+            while usuario not in base_datos:
                 usuario = input("ingrese su correo: ")
             password = input("ingrese su contraseña: ")
-            while password != usuarios[usuario]:
+            while password != base_datos[usuario]:
                 print("contraseña incorrecta")
                 password = input("vuelva a ingresar su contraseña: ")
             print("Inicio de sesión exitoso.")
             break
     elif opcion == "2":
         usuario = input("Ingrese su correo: ")
-        verificacion_correo = usuarios.keys()
+        verificacion_correo = base_datos.keys()
         while usuario in verificacion_correo :
                 print("el correo ingresado ya está registrado ingrese un nuevo correo")
                 usuario = input("Ingrese su correo: ")
         contraseña = input("ingrese la contraseña a crear ")
-        usuarios[usuario] = contraseña
+        base_datos[usuario] = contraseña
         print("cuenta creada exitosamente")
-    elif
-    break
+        break
+    elif opcion == "3":
+        exit()
+    else :
+        print("opcion ingresada invalida intentelo nuevamente ")
+
+while True:
+    name = input("Ingrese el nombre de usuario: ")
+    age = int(input("Ingrese su edad "))
+    if age >= 18:
+        ID = int(input(" Ingrese su número de cedula: "))
+    else:
+        print("eres menor de edad debes ir con un adulto")
+
+
+
+    
+while True: 
+    try:
+        print(""" ¡Bienvenido a CineMundo! \n
+        ======= PELÍCULAS DISPONIBLES EN CARTELERA ======= \n
+        "1.Fight Club" \n
+        "2.F1" \n
+        "3.Destino Final" \n
+        "4.El Lobo de Wall Street" \n
+        "5.Oppenheimer" \n
+        "6.Barbie" \n
+        "7.Interestellar" \n
+        "8.No mires arriba" \n
+        "9.Birdbox: a ciegas" \n
+        "10.Scary Movie" \n
+        "11.Terrifier" \n
+        "12.El resplandor" \n
+        "13.Sonic 3" \n """)
+        
+        pelicula_escogida = input("¿Qué película deseas ver?: ")
+        
+        if pelicula_escogida == "1": 
+            print(f"Hey usuario los horarios disponibles para esta funcion son: \n {Fight_Club}\n ")
+            hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
+            if hora_escogida in Fight_Club:
+            
+                sala = Fight_Club[hora_escogida]
+                print(f"Has escogido ver 'Fight Club' a las {hora_escogida} en {sala}.")
+                asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida]
+                print(f"Asientos disponibles: {asientos_disponibles}")
+        
+        elif pelicula_escogida == "2": 
+            print(f"Hey usuario los horarios disponibles para esta funcion son: \n {F1}\n ")
+            hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
+            if hora_escogida in F1:
+                sala = F1[hora_escogida]
+                print(f"Has escogido ver 'F1' a las {hora_escogida} en {sala}.")
+                asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida]
+                print(f"Asientos disponibles: {asientos_disponibles}")
+
+        elif pelicula_escogida == "3": 
+            print(f"Hey usuario los horarios disponibles para esta funcion son: \n {Destino_Final}\n ")
+            hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
+            if hora_escogida in Destino_Final:
+                sala = Destino_Final[hora_escogida]
+                print(f"Has escogido ver 'Destino Final' a las {hora_escogida} en {sala}.")
+                asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida]
+                print(f"Asientos disponibles: {asientos_disponibles}")
+
+        elif pelicula_escogida == "4": 
+            print(f"Hey usuario los horarios disponibles para esta funcion son: \n {F1}\n ")
+            hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
+            if hora_escogida in F1:
+                sala = F1[hora_escogida]
+                print(f"Has escogido ver 'F1' a las {hora_escogida} en {sala}.")
+                asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida]
+                print(f"Asientos disponibles: {asientos_disponibles}")
+
+        elif pelicula_escogida == "5": 
+            print(f"Hey usuario los horarios disponibles para esta funcion son: \n {El_Lobo_de_Wall_Street}\n ")
+            hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
+            if hora_escogida in El_Lobo_de_Wall_Street:
+                sala = F1[hora_escogida]
+                print(f"Has escogido ver 'El lobo de Wall Street' a las {hora_escogida} en {sala}.")
+                asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida]
+                print(f"Asientos disponibles: {asientos_disponibles}")
+        
+        elif pelicula_escogida == "6": 
+            print(f"Hey usuario los horarios disponibles para esta funcion son: \n {Oppenheimer}\n ")
+            hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
+            if hora_escogida in Oppenheimer:
+                sala = F1[hora_escogida]
+                print(f"Has escogido ver 'F1' a las {hora_escogida} en {sala}.") 
+                asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
+                print(f"Asientos disponibles: {asientos_disponibles}") 
+        
+        elif pelicula_escogida == "7": 
+            print(f"Hey usuario los horarios disponibles para esta funcion son: \n {Barbie}\n ")
+            hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
+            if hora_escogida in Barbie:
+                sala = F1[hora_escogida]
+                print(f"Has escogido ver 'Barbie' a las {hora_escogida} en {sala}.") 
+                asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
+                print(f"Asientos disponibles: {asientos_disponibles}")
+
+        elif pelicula_escogida == "8": 
+            print(f"Hey usuario los horarios disponibles para esta funcion son: \n {interestelar}\n ")
+            hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
+            if hora_escogida in interestelar:
+                sala = interestelar[hora_escogida]
+                print(f"Has escogido ver 'Intestelar' a las {hora_escogida} en {sala}.") 
+                asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
+                print(f"Asientos disponibles: {asientos_disponibles}")
+        
+        elif pelicula_escogida == "9": 
+            print(f"Hey usuario los horarios disponibles para esta funcion son: \n {No_Mires_Arriba}\n ")
+            hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
+            if hora_escogida in No_Mires_Arriba:
+                sala = No_Mires_Arriba[hora_escogida]
+                print(f"Has escogido ver 'No mires arriba' a las {hora_escogida} en {sala}.") 
+                asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
+                print(f"Asientos disponibles: {asientos_disponibles}")
+
+        elif pelicula_escogida == "9": 
+            print(f"Hey usuario los horarios disponibles para esta funcion son: \n {Birdbox_a_ciegas}\n ")
+            hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
+            if hora_escogida in Birdbox_a_ciegas:
+                sala = Birdbox_a_ciegas[hora_escogida]
+                print(f"Has escogido ver 'Birdbox_a_ciegas' a las {hora_escogida} en {sala}.") 
+                asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
+                print(f"Asientos disponibles: {asientos_disponibles}")
+
+        elif pelicula_escogida == "10": 
+            print(f"Hey usuario los horarios disponibles para esta funcion son: \n {Scary_Movie}\n ")
+            hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
+            if hora_escogida in Scary_Movie:
+                sala = Scary_Movie[hora_escogida]
+                print(f"Has escogido ver 'Scary Movie' a las {hora_escogida} en {sala}.") 
+                asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
+                print(f"Asientos disponibles: {asientos_disponibles}")
+                
+        elif pelicula_escogida == "11": 
+            print(f"Hey usuario los horarios disponibles para esta funcion son: \n {Terrifier}\n ")
+            hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
+            if hora_escogida in Terrifier:
+                sala = Terrifier[hora_escogida]
+                print(f"Has escogido ver 'Terrifier' a las {hora_escogida} en {sala}.") 
+                asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
+                print(f"Asientos disponibles: {asientos_disponibles}")
+
+        elif pelicula_escogida == "12": 
+            print(f"Hey usuario los horarios disponibles para esta funcion son: \n {El_Resplandor}\n ")
+            hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
+            if hora_escogida in El_Resplandor:
+                sala = El_Resplandor[hora_escogida]
+                print(f"Has escogido ver 'El Resplandor' a las {hora_escogida} en {sala}.") 
+                asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
+                print(f"Asientos disponibles: {asientos_disponibles}")
+        
+        elif pelicula_escogida == "13": 
+            print(f"Hey usuario los horarios disponibles para esta funcion son: \n {Sonic_3}\n ")
+            hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
+            if hora_escogida in Sonic_3:
+                sala = Sonic_3[hora_escogida]
+                print(f"Has escogido ver 'Sonic_3' a las {hora_escogida} en {sala}.") 
+                asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
+                print(f"Asientos disponibles: {asientos_disponibles}")
+    except KeyError:
+        print("La hora ingresada no es válida o no está disponible para la película seleccionada.")
+        
+    print("=== FACTURA DEL CLIENTE ==== \n")
+    prtnt(f"")
