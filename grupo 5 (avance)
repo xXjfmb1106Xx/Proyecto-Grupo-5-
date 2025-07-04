@@ -20,7 +20,7 @@ hora_y_sillas_disponibles_sala1 = {
     11 : 96,
     13.05 : 96,
     15 : 96,
-    17.10 : 96,
+    17.35 : 96,
     18.55 : 96 
 }
 hora_y_sillas_disponibles_sala2 = {
@@ -41,7 +41,7 @@ hora_y_sillas_disponibles_sala4 = {
     11 : 96,
     13.05 : 96,
     15.25 : 96,
-    17.35 : 96,
+    18.55 : 96,
     20.10 : 96,
     23.10 : 96
 }
@@ -146,6 +146,7 @@ while True:
         ID = int(input(" Ingrese su número de cedula: "))
     else:
         print("eres menor de edad debes ir con un adulto")
+    break
 
 
 
@@ -172,13 +173,22 @@ while True:
         
         if pelicula_escogida == "1": 
             print(f"Hey usuario los horarios disponibles para esta funcion son: \n {Fight_Club}\n ")
-            hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
+            hora_escogida = round(float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): ")),2)
             if hora_escogida in Fight_Club:
             
                 sala = Fight_Club[hora_escogida]
                 print(f"Has escogido ver 'Fight Club' a las {hora_escogida} en {sala}.")
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida]
                 print(f"Asientos disponibles: {asientos_disponibles}")
+                compra = int(input("cuantos asientos deseas comprar? "))
+                asientos_disponibles -= compra
+                #la variable de aqui arriba es para que se reste la cantidad de sillas a esa hora y le puse un "round" al ingreso de la hora para evitar que python arroje error
+                if compra > 4 :
+                    total = (compra-((10/(6000 * compra))*100)) 
+                    #en este momento deveria rrojarle la factura al cliente y lo de arriba de "total" es solo un calculo matematico para sacar su total a pagar y por cierto los 6000 es solo un presio de referencia, se nos olvido poner los precios
+                else :
+                    total = (compra * 6000)
+                    #y en este caso le imprime la factura sin descuento
         
         elif pelicula_escogida == "2": 
             print(f"Hey usuario los horarios disponibles para esta funcion son: \n {F1}\n ")
@@ -300,4 +310,4 @@ while True:
         print("La hora ingresada no es válida o no está disponible para la película seleccionada.")
         
     print("=== FACTURA DEL CLIENTE ==== \n")
-    prtnt(f"")
+    print(f"")
