@@ -1,6 +1,10 @@
 base_datos = {
     "test@gmail.com" : "qwerty"
 }
+factura = None
+peliculas_compradas = {
+    
+}
 peliculas_en_cartelera_y_su_duracion = {
     "Fight Club" : 2.19,
     "For F1" : 2.19,
@@ -86,7 +90,7 @@ Scary_Movie = {
     20.10 : "sala_3" 
 }
 Terrifier = {
-    1.05 : "sala_4"
+    13.05 : "sala_4"
 }
 El_Resplandor = { 
     15 : "sala_2"
@@ -102,7 +106,8 @@ while True:
     ====== MENÚ ====== \n 
     1. Iniciar sesion.  \n  
     2. Crear cuenta.\n
-    3. Salir. \n """)
+    3. consutar factura de compra. \n
+    4. salir. \n""")
 
     opcion = input("Ingrese una de las opciones: ")
     if opcion == "1":
@@ -132,46 +137,55 @@ while True:
                 usuario = input("Ingrese su correo: ")
         contraseña = input("ingrese la contraseña a crear ")
         base_datos[usuario] = contraseña
+        peliculas_compradas[(usuario, contraseña)] = factura
         print("cuenta creada exitosamente")
         break
     elif opcion == "3":
+        usuario = input("ingrese su correo: ")
+        password = input("ingrese su contraseña")
+        peliculas_compradas_verifi = (usuario, password)
+        if peliculas_compradas_verifi in peliculas_compradas:
+            print (f"{peliculas_compradas[peliculas_compradas_verifi]}")
+    elif opcion == "4" :
         exit()
     else :
-        print("opcion ingresada invalida intentelo nuevamente ")
+        print("La opcion ingresada no es válida, inténtelo nuevamente. ")
 
-while True:
-    name = input("Ingrese el nombre de usuario: ")
-    age = int(input("Ingrese su edad "))
-    if age >= 18:
-        ID = int(input(" Ingrese su número de cedula: "))
-    else:
-        print("eres menor de edad debes ir con un adulto")
-    break
+nombre = input("Ingrese el nombre de usuario: ")
 
-
-
-    
 while True: 
     try:
-        print(""" ¡Bienvenido a CineMundo! \n
-        ======= PELÍCULAS DISPONIBLES EN CARTELERA ======= \n
-        "1.Fight Club" \n
-        "2.F1" \n
-        "3.Destino Final" \n
-        "4.El Lobo de Wall Street" \n
-        "5.Oppenheimer" \n
-        "6.Barbie" \n
-        "7.Interestellar" \n
-        "8.No mires arriba" \n
-        "9.Birdbox: a ciegas" \n
-        "10.Scary Movie" \n
-        "11.Terrifier" \n
-        "12.El resplandor" \n
-        "13.Sonic 3" \n """)
+        print("""
         
-        pelicula_escogida = input("¿Qué película deseas ver?: ")
+        =========== 🎬 ¡Bienvenido a CineMundo! 🎬 ===========\n
         
-        if pelicula_escogida == "1": 
+        =======================================================
+        ====== 📽️ PELÍCULAS DISPONIBLES EN CARTELERA 📽️ ======
+        ======================================================= 
+        
+        - 1. Fight Club 
+        - 2. F1
+        - 3. Destino Final
+        - 4. El Lobo de Wall Street
+        - 5. Oppenheimer
+        - 6. Barbie
+        - 7. Interestelar
+        - 8. No mires arriba
+        - 9. Birdbox: a ciegas
+        - 10. Scary Movie
+        - 11. Terrifier
+        - 12. El resplandor
+        - 13. Sonic 3 
+        
+        ==========================================================
+        ====== 🍿 ELIJE TU PELÍCULA FAVORITA Y DISFRUTA 🍿 ======
+        ==========================================================
+        """)
+        
+        pelicula_escogida = input("\n¿Qué película deseas ver? elije una opción (1-13): \n")
+        
+        if pelicula_escogida == "1":
+            nombre_pelicula_factura = "Fight club"
             print(f"Hey usuario los horarios disponibles para esta funcion son: \n {Fight_Club}\n ")
             hora_escogida = round(float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): ")),2)
             if hora_escogida in Fight_Club:
@@ -184,13 +198,14 @@ while True:
                 asientos_disponibles -= compra
                 #la variable de aqui arriba es para que se reste la cantidad de sillas a esa hora y le puse un "round" al ingreso de la hora para evitar que python arroje error
                 if compra > 4 :
-                    total = (compra-((10/(6000 * compra))*100)) 
+                    total = ((compra * 10000)-((10/(10000 * compra))*100)) 
                     #en este momento deveria rrojarle la factura al cliente y lo de arriba de "total" es solo un calculo matematico para sacar su total a pagar y por cierto los 6000 es solo un presio de referencia, se nos olvido poner los precios
                 else :
-                    total = (compra * 6000)
+                    total = (compra * 10000)
                     #y en este caso le imprime la factura sin descuento
         
         elif pelicula_escogida == "2": 
+            nombre_pelicula_factura = "F1"
             print(f"Hey usuario los horarios disponibles para esta funcion son: \n {F1}\n ")
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
             if hora_escogida in F1:
@@ -198,8 +213,15 @@ while True:
                 print(f"Has escogido ver 'F1' a las {hora_escogida} en {sala}.")
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida]
                 print(f"Asientos disponibles: {asientos_disponibles}")
+                compra = int(input("cuantos asientos deseas comprar? "))
+                asientos_disponibles -= compra
+                if compra > 4 :
+                    total = ((compra * 10000)-((10/(10000 * compra))*100))
+                else :
+                    total = (compra * 10000)
 
         elif pelicula_escogida == "3": 
+            nombre_pelicula_factura = "Destino final"
             print(f"Hey usuario los horarios disponibles para esta funcion son: \n {Destino_Final}\n ")
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
             if hora_escogida in Destino_Final:
@@ -207,44 +229,63 @@ while True:
                 print(f"Has escogido ver 'Destino Final' a las {hora_escogida} en {sala}.")
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida]
                 print(f"Asientos disponibles: {asientos_disponibles}")
+                compra = int(input("cuantos asientos deseas comprar? "))
+                asientos_disponibles -= compra
+                if compra > 4 :
+                    total = ((compra * 10000)-((10/(10000 * compra))*100))
+                else :
+                    total = (compra * 10000)
 
         elif pelicula_escogida == "4": 
-            print(f"Hey usuario los horarios disponibles para esta funcion son: \n {F1}\n ")
-            hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
-            if hora_escogida in F1:
-                sala = F1[hora_escogida]
-                print(f"Has escogido ver 'F1' a las {hora_escogida} en {sala}.")
-                asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida]
-                print(f"Asientos disponibles: {asientos_disponibles}")
-
-        elif pelicula_escogida == "5": 
+            nombre_pelicula_factura = "El Lobo de Wall Street"
             print(f"Hey usuario los horarios disponibles para esta funcion son: \n {El_Lobo_de_Wall_Street}\n ")
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
             if hora_escogida in El_Lobo_de_Wall_Street:
-                sala = F1[hora_escogida]
-                print(f"Has escogido ver 'El lobo de Wall Street' a las {hora_escogida} en {sala}.")
+                sala = El_Lobo_de_Wall_Street[hora_escogida]
+                print(f"Has escogido ver 'El Lobo de Wall Street' a las {hora_escogida} en {sala}.")
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida]
                 print(f"Asientos disponibles: {asientos_disponibles}")
-        
-        elif pelicula_escogida == "6": 
+                compra = int(input("cuantos asientos deseas comprar? "))
+                asientos_disponibles -= compra
+                if compra > 4 :
+                    total = ((compra * 10000)-((10/(10000 * compra))*100))
+                else :
+                    total = (compra * 10000)
+
+        elif pelicula_escogida == "5": 
+            nombre_pelicula_factura = "Oppenheimer"
             print(f"Hey usuario los horarios disponibles para esta funcion son: \n {Oppenheimer}\n ")
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
             if hora_escogida in Oppenheimer:
-                sala = F1[hora_escogida]
-                print(f"Has escogido ver 'F1' a las {hora_escogida} en {sala}.") 
+                sala = Oppenheimer[hora_escogida]
+                print(f"Has escogido ver 'Oppenheimer' a las {hora_escogida} en {sala}.") 
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
                 print(f"Asientos disponibles: {asientos_disponibles}") 
+                compra = int(input("cuantos asientos deseas comprar? "))
+                asientos_disponibles -= compra
+                if compra > 4 :
+                    total = ((compra * 10000)-((10/(10000 * compra))*100))
+                else :
+                    total = (compra * 10000)
         
-        elif pelicula_escogida == "7": 
+        elif pelicula_escogida == "6": 
+            nombre_pelicula_factura = "Barbie"
             print(f"Hey usuario los horarios disponibles para esta funcion son: \n {Barbie}\n ")
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
             if hora_escogida in Barbie:
-                sala = F1[hora_escogida]
+                sala = Barbie[hora_escogida]
                 print(f"Has escogido ver 'Barbie' a las {hora_escogida} en {sala}.") 
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
                 print(f"Asientos disponibles: {asientos_disponibles}")
+                compra = int(input("cuantos asientos deseas comprar? "))
+                asientos_disponibles -= compra
+                if compra > 4 :
+                    total = ((compra * 10000)-((10/(10000 * compra))*100))
+                else :
+                    total = (compra * 10000)
 
-        elif pelicula_escogida == "8": 
+        elif pelicula_escogida == "7": 
+            nombre_pelicula_factura = "Interestelar"
             print(f"Hey usuario los horarios disponibles para esta funcion son: \n {interestelar}\n ")
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
             if hora_escogida in interestelar:
@@ -252,8 +293,15 @@ while True:
                 print(f"Has escogido ver 'Intestelar' a las {hora_escogida} en {sala}.") 
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
                 print(f"Asientos disponibles: {asientos_disponibles}")
+                compra = int(input("cuantos asientos deseas comprar? "))
+                asientos_disponibles -= compra
+                if compra > 4 :
+                    total = ((compra * 10000)-((10/(10000 * compra))*100))
+                else :
+                    total = (compra * 10000)
         
-        elif pelicula_escogida == "9": 
+        elif pelicula_escogida == "8": 
+            nombre_pelicula_factura = "No Mires Arribva"
             print(f"Hey usuario los horarios disponibles para esta funcion son: \n {No_Mires_Arriba}\n ")
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
             if hora_escogida in No_Mires_Arriba:
@@ -261,17 +309,31 @@ while True:
                 print(f"Has escogido ver 'No mires arriba' a las {hora_escogida} en {sala}.") 
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
                 print(f"Asientos disponibles: {asientos_disponibles}")
-
+                compra = int(input("cuantos asientos deseas comprar? "))
+                asientos_disponibles -= compra
+                if compra > 4 :
+                    total = ((compra * 10000)-((10/(10000 * compra))*100))
+                else :
+                    total = (compra * 10000)
+                
         elif pelicula_escogida == "9": 
+            nombre_pelicula_factura = "Bird Box: a ciegas"
             print(f"Hey usuario los horarios disponibles para esta funcion son: \n {Birdbox_a_ciegas}\n ")
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
             if hora_escogida in Birdbox_a_ciegas:
                 sala = Birdbox_a_ciegas[hora_escogida]
-                print(f"Has escogido ver 'Birdbox_a_ciegas' a las {hora_escogida} en {sala}.") 
+                print(f"Has escogido ver 'Scary Movie' a las {hora_escogida} en {sala}.") 
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
                 print(f"Asientos disponibles: {asientos_disponibles}")
-
+                compra = int(input("cuantos asientos deseas comprar? "))
+                asientos_disponibles -= compra
+                if compra > 4 :
+                    total = ((compra * 10000)-((10/(10000 * compra))*100))
+                else :
+                    total = (compra * 10000)
+                
         elif pelicula_escogida == "10": 
+            nombre_pelicula_factura = "Scary Movie"
             print(f"Hey usuario los horarios disponibles para esta funcion son: \n {Scary_Movie}\n ")
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
             if hora_escogida in Scary_Movie:
@@ -279,8 +341,15 @@ while True:
                 print(f"Has escogido ver 'Scary Movie' a las {hora_escogida} en {sala}.") 
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
                 print(f"Asientos disponibles: {asientos_disponibles}")
+                compra = int(input("cuantos asientos deseas comprar? "))
+                asientos_disponibles -= compra
+                if compra > 4 :
+                    total = ((compra * 10000)-((10/(10000 * compra))*100))
+                else :
+                    total = (compra * 10000)
                 
         elif pelicula_escogida == "11": 
+            nombre_pelicula_factura = "Terrifier"
             print(f"Hey usuario los horarios disponibles para esta funcion son: \n {Terrifier}\n ")
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
             if hora_escogida in Terrifier:
@@ -288,8 +357,15 @@ while True:
                 print(f"Has escogido ver 'Terrifier' a las {hora_escogida} en {sala}.") 
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
                 print(f"Asientos disponibles: {asientos_disponibles}")
-
+                compra = int(input("cuantos asientos deseas comprar? "))
+                asientos_disponibles -= compra
+                if compra > 4 :
+                    total = ((compra * 10000)-((10/(10000 * compra))*100))
+                else :
+                    total = (compra * 10000)
+                    
         elif pelicula_escogida == "12": 
+            nombre_pelicula_factura = "El Resplandora"
             print(f"Hey usuario los horarios disponibles para esta funcion son: \n {El_Resplandor}\n ")
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
             if hora_escogida in El_Resplandor:
@@ -297,8 +373,15 @@ while True:
                 print(f"Has escogido ver 'El Resplandor' a las {hora_escogida} en {sala}.") 
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
                 print(f"Asientos disponibles: {asientos_disponibles}")
+                compra = int(input("cuantos asientos deseas comprar? "))
+                asientos_disponibles -= compra
+                if compra > 4 :
+                    total = ((compra * 10000)-((10/(10000 * compra))*100))
+                else :
+                    total = (compra * 10000)
         
         elif pelicula_escogida == "13": 
+            nombre_pelicula_factura = "Sonic 3"
             print(f"Hey usuario los horarios disponibles para esta funcion son: \n {Sonic_3}\n ")
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))
             if hora_escogida in Sonic_3:
@@ -306,8 +389,31 @@ while True:
                 print(f"Has escogido ver 'Sonic_3' a las {hora_escogida} en {sala}.") 
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
                 print(f"Asientos disponibles: {asientos_disponibles}")
+                compra = int(input("cuantos asientos deseas comprar? "))
+                asientos_disponibles -= compra
+                
+    # Si el usuario ingresa una opción que está fuera de la cantidad de películas            
     except KeyError:
-        print("La hora ingresada no es válida o no está disponible para la película seleccionada.")
+        print("Estimado usuario, ingrese una opción válida. Inténtelo de nuevo.")
         
-    print("=== FACTURA DEL CLIENTE ==== \n")
-    print(f"")
+    subtotal = compra * 10000
+    (f"Subtotal: ${subtotal}")
+    if compra > 4:
+        descuento = subtotal * 0.10 
+        subtotal -= descuento 
+        print(f"Descuento (10%): -${int(descuento)}")
+    else:
+        descuento = 0 
+        print("Descuento: $0")
+        
+    factura = print(f"""
+    -------- FACTURA DEL CLIENTE --------
+    Nombre del cliente: {nombre}
+    Película: {nombre_pelicula_factura}
+    Hora: {hora_escogida}
+    Sala: {sala}
+    Asientos comprados: {compra}
+    Precio unitario: $10.000 
+    total a pagar : {subtotal}
+    ------------------------------------ """)
+    break
