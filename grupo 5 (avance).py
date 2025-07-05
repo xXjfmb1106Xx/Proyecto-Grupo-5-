@@ -1,17 +1,13 @@
-base_datos = {
-    "test@gmail.com" : "qwerty"
-}
-factura = None
-peliculas_compradas = {
-    
-}
-peliculas_en_cartelera_y_su_duracion = {
-    "Fight Club" : 2.19,
-    "For F1" : 2.19,
-    "Destino Final Bloodlines" : 1.40,
-    "El Lobo de Wall Street" : 3,
-    "Oppenheimer" : 3,
-    "Barbie" : 1.54,
+# Diccionario que contendrá a todos los usuarios registrados
+base_datos = {"test@gmail.com" : "qwerty"} 
+
+peliculas_en_cartelera_y_su_duracion = {    # diccionario con peliculas elegidas y su duracion
+    "Fight Club" : 2.19,                   
+    "For F1" : 2.19,                        
+    "Destino Final Bloodlines" : 1.40,      
+    "El Lobo de Wall Street" : 3,           
+    "Oppenheimer" : 3,                      
+    "Barbie" : 1.54,                        
     "Interestelar" : 2.49,
     "No mires arriba" : 2.25,
     "Birdbox a ciegas" : 2.4,
@@ -20,13 +16,15 @@ peliculas_en_cartelera_y_su_duracion = {
     "El resplandor" : 2.26,
     "Sonic 3" : 1.50
 }
-hora_y_sillas_disponibles_sala1 = {
+
+hora_y_sillas_disponibles_sala1 = {                      # lo explica  Cadena
     11 : 96,
     13.05 : 96,
     15 : 96,
     17.35 : 96,
     18.55 : 96 
 }
+
 hora_y_sillas_disponibles_sala2 = {
     11 : 96,
     12.45 : 96,
@@ -34,6 +32,7 @@ hora_y_sillas_disponibles_sala2 = {
     17.45 : 96,
     20.25 : 96 
 }
+
 hora_y_sillas_disponibles_sala3 = {
     11 : 96,
     14.15 : 96,
@@ -41,6 +40,7 @@ hora_y_sillas_disponibles_sala3 = {
     20.10 : 96,
     6.55 : 96 
 }
+
 hora_y_sillas_disponibles_sala4 = {
     11 : 96,
     13.05 : 96,
@@ -49,13 +49,15 @@ hora_y_sillas_disponibles_sala4 = {
     20.10 : 96,
     23.10 : 96
 }
-salas_y_sus_horarios = {
+
+salas_y_sus_horarios = {                       
     "sala_1" : hora_y_sillas_disponibles_sala1,
     "sala_2" : hora_y_sillas_disponibles_sala2,
     "sala_3" : hora_y_sillas_disponibles_sala3,
     "sala_4" : hora_y_sillas_disponibles_sala4 
 }
-# diccionario individual de las horas en las que estan disponibles cada pelicula y en que sala para facilitar el mostrarlos en interfaz
+
+# diccionario que contiene de las horas en las que estan disponibles cada pelicula y en que sala para facilitar el mostrarlos en interfaz
 Fight_Club = { 
     17.35 : "sala_1",
     18.55 : "sala_4" 
@@ -100,63 +102,55 @@ Sonic_3 = {
     11 : "sala_4"
 }
 
-# Inte
 while True:
     print(""" ¡Bienvenido a CineMundo! \n 
     ====== MENÚ ====== \n 
     1. Iniciar sesion.  \n  
     2. Crear cuenta.\n
-    3. consutar factura de compra. \n
-    4. salir. \n""")
+    3. salir. \n""")
 
-    opcion = input("Ingrese una de las opciones: ")
-    if opcion == "1":
-        usuario = input("ingrese su correo: ")
-        if usuario in base_datos:
-            password = input("ingrese su contraseña: ")
-            while password != base_datos[usuario]:
-                print("contraseña incorrecta")
-                password = input("vuelva a ingresar su contraseña: ")
-            print("Inicio de sesión exitoso.")
-            break
-        else:
-            print("usuario incorrecto vuelva ha ingresar su usuario")
-            while usuario not in base_datos:
-                usuario = input("ingrese su correo: ")
-            password = input("ingrese su contraseña: ")
-            while password != base_datos[usuario]:
-                print("contraseña incorrecta")
-                password = input("vuelva a ingresar su contraseña: ")
-            print("Inicio de sesión exitoso.")
-            break
-    elif opcion == "2":
-        usuario = input("Ingrese su correo: ")
-        verificacion_correo = base_datos.keys()
-        while usuario in verificacion_correo :
+    try:
+        opcion = input("Ingrese una de las opciones: ")
+        if opcion == "1":
+            usuario = input("ingrese su correo: ")
+            if usuario in base_datos:
+                password = input("ingrese su contraseña: ")
+                while password != base_datos[usuario]:
+                    print("contraseña incorrecta")
+                    password = input("vuelva a ingresar su contraseña: ")
+                print("Inicio de sesión exitoso.")
+                break
+            else:
+                print("usuario incorrecto vuelva ha ingresar su usuario")
+                while usuario not in base_datos:
+                    usuario = input("ingrese su correo: ")
+                password = input("ingrese su contraseña: ")
+                while password != base_datos[usuario]:
+                    print("contraseña incorrecta")
+                    password = input("vuelva a ingresar su contraseña: ")
+                print("Inicio de sesión exitoso.")
+                break
+        elif opcion == "2":
+            usuario = input("Ingrese su correo: ")
+            verificacion_correo = base_datos.keys()
+            while usuario in verificacion_correo :
                 print("el correo ingresado ya está registrado ingrese un nuevo correo")
                 usuario = input("Ingrese su correo: ")
-        contraseña = input("ingrese la contraseña a crear ")
-        base_datos[usuario] = contraseña
-        peliculas_compradas[(usuario, contraseña)] = factura
-        print("cuenta creada exitosamente")
-        break
-    elif opcion == "3":
-        usuario = input("ingrese su correo: ")
-        password = input("ingrese su contraseña")
-        peliculas_compradas_verifi = (usuario, password)
-        if peliculas_compradas_verifi in peliculas_compradas:
-            print (f"{peliculas_compradas[peliculas_compradas_verifi]}")
-    elif opcion == "4" :
-        exit()
-    else :
-        print("La opcion ingresada no es válida, inténtelo nuevamente. ")
+            contraseña = input("ingrese la contraseña a crear ")
+            base_datos[usuario] = contraseña
+            print("cuenta creada exitosamente")
+            break
+    
+        elif opcion == "3":
+            exit()
+    except ValueError:
+        print("opcion invalida")
 
 nombre = input("Ingrese el nombre de usuario: ")
 
 while True: 
     try:
         print("""
-        
         =========== 🎬 ¡Bienvenido a CineMundo! 🎬 ===========\n
         
         =======================================================
@@ -193,17 +187,18 @@ while True:
                 sala = Fight_Club[hora_escogida]
                 print(f"Has escogido ver 'Fight Club' a las {hora_escogida} en {sala}.")
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida]
-                print(f"Asientos disponibles: {asientos_disponibles}")
-                compra = int(input("cuantos asientos deseas comprar? "))
-                asientos_disponibles -= compra
-                #la variable de aqui arriba es para que se reste la cantidad de sillas a esa hora y le puse un "round" al ingreso de la hora para evitar que python arroje error
-                if compra > 4 :
-                    total = ((compra * 10000)-((10/(10000 * compra))*100)) 
-                    #en este momento deveria rrojarle la factura al cliente y lo de arriba de "total" es solo un calculo matematico para sacar su total a pagar y por cierto los 6000 es solo un presio de referencia, se nos olvido poner los precios
-                else :
-                    total = (compra * 10000)
-                    #y en este caso le imprime la factura sin descuento
-        
+                if asientos_disponibles <= 0 :
+                    print ("no quedan mas sillas disponibles")
+                    break
+                else:
+                    print(f"Asientos disponibles: {asientos_disponibles}")
+                    compra = int(input("cuantos asientos deseas comprar? "))
+                    asientos_disponibles -= compra
+                    if compra > 4 :
+                        total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                    else :
+                        total = (compra * 10000)
+                        
         elif pelicula_escogida == "2": 
             nombre_pelicula_factura = "F1"
             print(f"Hey usuario los horarios disponibles para esta funcion son: \n {F1}\n ")
@@ -212,13 +207,17 @@ while True:
                 sala = F1[hora_escogida]
                 print(f"Has escogido ver 'F1' a las {hora_escogida} en {sala}.")
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida]
-                print(f"Asientos disponibles: {asientos_disponibles}")
-                compra = int(input("cuantos asientos deseas comprar? "))
-                asientos_disponibles -= compra
-                if compra > 4 :
-                    total = ((compra * 10000)-((10/(10000 * compra))*100))
-                else :
-                    total = (compra * 10000)
+                if asientos_disponibles <= 0 :
+                    print ("no quedan mas sillas disponibles")
+                    break
+                else:
+                    print(f"Asientos disponibles: {asientos_disponibles}")
+                    compra = int(input("cuantos asientos deseas comprar? "))
+                    asientos_disponibles -= compra
+                    if compra > 4 :
+                        total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                    else :
+                        total = (compra * 10000)
 
         elif pelicula_escogida == "3": 
             nombre_pelicula_factura = "Destino final"
@@ -228,13 +227,17 @@ while True:
                 sala = Destino_Final[hora_escogida]
                 print(f"Has escogido ver 'Destino Final' a las {hora_escogida} en {sala}.")
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida]
-                print(f"Asientos disponibles: {asientos_disponibles}")
-                compra = int(input("cuantos asientos deseas comprar? "))
-                asientos_disponibles -= compra
-                if compra > 4 :
-                    total = ((compra * 10000)-((10/(10000 * compra))*100))
-                else :
-                    total = (compra * 10000)
+                if asientos_disponibles <= 0 :
+                    print ("no quedan mas sillas disponibles")
+                    break
+                else:
+                    print(f"Asientos disponibles: {asientos_disponibles}")
+                    compra = int(input("cuantos asientos deseas comprar? "))
+                    asientos_disponibles -= compra
+                    if compra > 4 :
+                        total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                    else :
+                        total = (compra * 10000)
 
         elif pelicula_escogida == "4": 
             nombre_pelicula_factura = "El Lobo de Wall Street"
@@ -244,13 +247,17 @@ while True:
                 sala = El_Lobo_de_Wall_Street[hora_escogida]
                 print(f"Has escogido ver 'El Lobo de Wall Street' a las {hora_escogida} en {sala}.")
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida]
-                print(f"Asientos disponibles: {asientos_disponibles}")
-                compra = int(input("cuantos asientos deseas comprar? "))
-                asientos_disponibles -= compra
-                if compra > 4 :
-                    total = ((compra * 10000)-((10/(10000 * compra))*100))
-                else :
-                    total = (compra * 10000)
+                if asientos_disponibles <= 0 :
+                    print ("no quedan mas sillas disponibles")
+                    break
+                else:
+                    print(f"Asientos disponibles: {asientos_disponibles}")
+                    compra = int(input("cuantos asientos deseas comprar? "))
+                    asientos_disponibles -= compra
+                    if compra > 4 :
+                        total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                    else :
+                        total = (compra * 10000)
 
         elif pelicula_escogida == "5": 
             nombre_pelicula_factura = "Oppenheimer"
@@ -260,13 +267,17 @@ while True:
                 sala = Oppenheimer[hora_escogida]
                 print(f"Has escogido ver 'Oppenheimer' a las {hora_escogida} en {sala}.") 
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
-                print(f"Asientos disponibles: {asientos_disponibles}") 
-                compra = int(input("cuantos asientos deseas comprar? "))
-                asientos_disponibles -= compra
-                if compra > 4 :
-                    total = ((compra * 10000)-((10/(10000 * compra))*100))
-                else :
-                    total = (compra * 10000)
+                if asientos_disponibles <= 0 :
+                    print ("no quedan mas sillas disponibles")
+                    break
+                else:
+                    print(f"Asientos disponibles: {asientos_disponibles}")
+                    compra = int(input("cuantos asientos deseas comprar? "))
+                    asientos_disponibles -= compra
+                    if compra > 4 :
+                        total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                    else :
+                        total = (compra * 10000)
         
         elif pelicula_escogida == "6": 
             nombre_pelicula_factura = "Barbie"
@@ -276,14 +287,17 @@ while True:
                 sala = Barbie[hora_escogida]
                 print(f"Has escogido ver 'Barbie' a las {hora_escogida} en {sala}.") 
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
-                print(f"Asientos disponibles: {asientos_disponibles}")
-                compra = int(input("cuantos asientos deseas comprar? "))
-                asientos_disponibles -= compra
-                if compra > 4 :
-                    total = ((compra * 10000)-((10/(10000 * compra))*100))
-                else :
-                    total = (compra * 10000)
-
+                if asientos_disponibles <= 0 :
+                    print ("no quedan mas sillas disponibles")
+                    break
+                else:
+                    print(f"Asientos disponibles: {asientos_disponibles}")
+                    compra = int(input("cuantos asientos deseas comprar? "))
+                    asientos_disponibles -= compra
+                    if compra > 4 :
+                        total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                    else :
+                        total = (compra * 10000)
         elif pelicula_escogida == "7": 
             nombre_pelicula_factura = "Interestelar"
             print(f"Hey usuario los horarios disponibles para esta funcion son: \n {interestelar}\n ")
@@ -292,13 +306,17 @@ while True:
                 sala = interestelar[hora_escogida]
                 print(f"Has escogido ver 'Intestelar' a las {hora_escogida} en {sala}.") 
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
-                print(f"Asientos disponibles: {asientos_disponibles}")
-                compra = int(input("cuantos asientos deseas comprar? "))
-                asientos_disponibles -= compra
-                if compra > 4 :
-                    total = ((compra * 10000)-((10/(10000 * compra))*100))
-                else :
-                    total = (compra * 10000)
+                if asientos_disponibles <= 0 :
+                    print ("no quedan mas sillas disponibles")
+                    break
+                else:
+                    print(f"Asientos disponibles: {asientos_disponibles}")
+                    compra = int(input("cuantos asientos deseas comprar? "))
+                    asientos_disponibles -= compra
+                    if compra > 4 :
+                        total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                    else :
+                        total = (compra * 10000)
         
         elif pelicula_escogida == "8": 
             nombre_pelicula_factura = "No Mires Arribva"
@@ -308,14 +326,17 @@ while True:
                 sala = No_Mires_Arriba[hora_escogida]
                 print(f"Has escogido ver 'No mires arriba' a las {hora_escogida} en {sala}.") 
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
-                print(f"Asientos disponibles: {asientos_disponibles}")
-                compra = int(input("cuantos asientos deseas comprar? "))
-                asientos_disponibles -= compra
-                if compra > 4 :
-                    total = ((compra * 10000)-((10/(10000 * compra))*100))
-                else :
-                    total = (compra * 10000)
-                
+                if asientos_disponibles <= 0 :
+                    print ("no quedan mas sillas disponibles")
+                    break
+                else:
+                    print(f"Asientos disponibles: {asientos_disponibles}")
+                    compra = int(input("cuantos asientos deseas comprar? "))
+                    asientos_disponibles -= compra
+                    if compra > 4 :
+                        total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                    else :
+                        total = (compra * 10000)
         elif pelicula_escogida == "9": 
             nombre_pelicula_factura = "Bird Box: a ciegas"
             print(f"Hey usuario los horarios disponibles para esta funcion son: \n {Birdbox_a_ciegas}\n ")
@@ -324,14 +345,17 @@ while True:
                 sala = Birdbox_a_ciegas[hora_escogida]
                 print(f"Has escogido ver 'Scary Movie' a las {hora_escogida} en {sala}.") 
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
-                print(f"Asientos disponibles: {asientos_disponibles}")
-                compra = int(input("cuantos asientos deseas comprar? "))
-                asientos_disponibles -= compra
-                if compra > 4 :
-                    total = ((compra * 10000)-((10/(10000 * compra))*100))
-                else :
-                    total = (compra * 10000)
-                
+                if asientos_disponibles <= 0 :
+                    print ("no quedan mas sillas disponibles")
+                    break
+                else:
+                    print(f"Asientos disponibles: {asientos_disponibles}")
+                    compra = int(input("cuantos asientos deseas comprar? "))
+                    asientos_disponibles -= compra
+                    if compra > 4 :
+                        total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                    else :
+                        total = (compra * 10000)
         elif pelicula_escogida == "10": 
             nombre_pelicula_factura = "Scary Movie"
             print(f"Hey usuario los horarios disponibles para esta funcion son: \n {Scary_Movie}\n ")
@@ -340,13 +364,17 @@ while True:
                 sala = Scary_Movie[hora_escogida]
                 print(f"Has escogido ver 'Scary Movie' a las {hora_escogida} en {sala}.") 
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
-                print(f"Asientos disponibles: {asientos_disponibles}")
-                compra = int(input("cuantos asientos deseas comprar? "))
-                asientos_disponibles -= compra
-                if compra > 4 :
-                    total = ((compra * 10000)-((10/(10000 * compra))*100))
-                else :
-                    total = (compra * 10000)
+                if asientos_disponibles <= 0 :
+                    print ("no quedan mas sillas disponibles")
+                    break
+                else:
+                    print(f"Asientos disponibles: {asientos_disponibles}")
+                    compra = int(input("cuantos asientos deseas comprar? "))
+                    asientos_disponibles -= compra
+                    if compra > 4 :
+                        total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                    else :
+                        total = (compra * 10000)
                 
         elif pelicula_escogida == "11": 
             nombre_pelicula_factura = "Terrifier"
@@ -356,14 +384,17 @@ while True:
                 sala = Terrifier[hora_escogida]
                 print(f"Has escogido ver 'Terrifier' a las {hora_escogida} en {sala}.") 
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
-                print(f"Asientos disponibles: {asientos_disponibles}")
-                compra = int(input("cuantos asientos deseas comprar? "))
-                asientos_disponibles -= compra
-                if compra > 4 :
-                    total = ((compra * 10000)-((10/(10000 * compra))*100))
-                else :
-                    total = (compra * 10000)
-                    
+                if asientos_disponibles <= 0 :
+                    print ("no quedan mas sillas disponibles")
+                    break
+                else:
+                    print(f"Asientos disponibles: {asientos_disponibles}")
+                    compra = int(input("cuantos asientos deseas comprar? "))
+                    asientos_disponibles -= compra
+                    if compra > 4 :
+                        total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                    else :
+                        total = (compra * 10000)
         elif pelicula_escogida == "12": 
             nombre_pelicula_factura = "El Resplandora"
             print(f"Hey usuario los horarios disponibles para esta funcion son: \n {El_Resplandor}\n ")
@@ -372,13 +403,17 @@ while True:
                 sala = El_Resplandor[hora_escogida]
                 print(f"Has escogido ver 'El Resplandor' a las {hora_escogida} en {sala}.") 
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
-                print(f"Asientos disponibles: {asientos_disponibles}")
-                compra = int(input("cuantos asientos deseas comprar? "))
-                asientos_disponibles -= compra
-                if compra > 4 :
-                    total = ((compra * 10000)-((10/(10000 * compra))*100))
-                else :
-                    total = (compra * 10000)
+                if asientos_disponibles <= 0 :
+                    print ("no quedan mas sillas disponibles")
+                    break
+                else:
+                    print(f"Asientos disponibles: {asientos_disponibles}")
+                    compra = int(input("cuantos asientos deseas comprar? "))
+                    asientos_disponibles -= compra
+                    if compra > 4 :
+                        total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                    else :
+                        total = (compra * 10000)
         
         elif pelicula_escogida == "13": 
             nombre_pelicula_factura = "Sonic 3"
@@ -388,11 +423,17 @@ while True:
                 sala = Sonic_3[hora_escogida]
                 print(f"Has escogido ver 'Sonic_3' a las {hora_escogida} en {sala}.") 
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida] 
-                print(f"Asientos disponibles: {asientos_disponibles}")
-                compra = int(input("cuantos asientos deseas comprar? "))
-                asientos_disponibles -= compra
-                
-    # Si el usuario ingresa una opción que está fuera de la cantidad de películas            
+                if asientos_disponibles <= 0 :
+                    print ("no quedan mas sillas disponibles")
+                    break
+                else:
+                    print(f"Asientos disponibles: {asientos_disponibles}")
+                    compra = int(input("cuantos asientos deseas comprar? "))
+                    asientos_disponibles -= compra
+                    if compra > 4 :
+                        total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                    else :
+                        total = (compra * 10000)
     except KeyError:
         print("Estimado usuario, ingrese una opción válida. Inténtelo de nuevo.")
         
@@ -406,7 +447,7 @@ while True:
         descuento = 0 
         print("Descuento: $0")
         
-    factura = print(f"""
+    print(f"""
     -------- FACTURA DEL CLIENTE --------
     Nombre del cliente: {nombre}
     Película: {nombre_pelicula_factura}
