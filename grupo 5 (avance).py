@@ -42,7 +42,7 @@ hora_y_sillas_disponibles_sala3 = {
 }
 
 hora_y_sillas_disponibles_sala4 = {
-    11 : 96,
+    11.1 : 96,
     13.05 : 96,
     15.25 : 96,
     18.55 : 96,
@@ -88,7 +88,7 @@ Birdbox_a_ciegas = {
     12.45 : "sala_2"
 }
 Scary_Movie = {
-    11 : "sala_ 2",
+    11 : "sala_2",
     20.10 : "sala_3" 
 }
 Terrifier = {
@@ -99,7 +99,7 @@ El_Resplandor = {
 }
 Sonic_3 = { 
     11 : "sala_1",
-    11 : "sala_4"
+    11.1 : "sala_4"
 }
 
 while True:
@@ -199,7 +199,7 @@ while True:
                         else :
                             salas_y_sus_horarios[sala][hora_escogida] -= compra
                             if compra > 4 :
-                                total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                                total = compra * 10000 * 0.9  
                                 break
                             else :
                                 total = (compra * 10000) 
@@ -225,7 +225,7 @@ while True:
                         else :
                             salas_y_sus_horarios[sala][hora_escogida] -= compra
                             if compra > 4 :
-                                total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                                total = compra * 10000 * 0.9  
                                 break
                             else :
                                 total = (compra * 10000) 
@@ -251,7 +251,7 @@ while True:
                         else :
                             salas_y_sus_horarios[sala][hora_escogida] -= compra
                             if compra > 4 :
-                                total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                                total = compra * 10000 * 0.9  
                                 break
                             else :
                                 total = (compra * 10000) 
@@ -277,7 +277,7 @@ while True:
                         else :
                             salas_y_sus_horarios[sala][hora_escogida] -= compra
                             if compra > 4 :
-                                total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                                total = compra * 10000 * 0.9  
                                 break
                             else :
                                 total = (compra * 10000) 
@@ -303,7 +303,7 @@ while True:
                         else :
                             salas_y_sus_horarios[sala][hora_escogida] -= compra
                             if compra > 4 :
-                                total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                                total = compra * 10000 * 0.9  
                                 break
                             else :
                                 total = (compra * 10000) 
@@ -329,7 +329,7 @@ while True:
                         else :
                             salas_y_sus_horarios[sala][hora_escogida] -= compra
                             if compra > 4 :
-                                total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                                total = compra * 10000 * 0.9  
                                 break
                             else :
                                 total = (compra * 10000) 
@@ -354,7 +354,7 @@ while True:
                         else :
                             salas_y_sus_horarios[sala][hora_escogida] -= compra
                             if compra > 4 :
-                                total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                                total = compra * 10000 * 0.9  
                                 break
                             else :
                                 total = (compra * 10000) 
@@ -380,7 +380,7 @@ while True:
                         else :
                             salas_y_sus_horarios[sala][hora_escogida] -= compra
                             if compra > 4 :
-                                total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                                total = compra * 10000 * 0.9  
                                 break
                             else :
                                 total = (compra * 10000) 
@@ -405,7 +405,7 @@ while True:
                         else :
                             salas_y_sus_horarios[sala][hora_escogida] -= compra
                             if compra > 4 :
-                                total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                                total = compra * 10000 * 0.9  
                                 break
                             else :
                                 total = (compra * 10000) 
@@ -430,7 +430,7 @@ while True:
                         else :
                             salas_y_sus_horarios[sala][hora_escogida] -= compra
                             if compra > 4 :
-                                total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                                total = compra * 10000 * 0.9  
                                 break
                             else :
                                 total = (compra * 10000) 
@@ -456,7 +456,7 @@ while True:
                         else :
                             salas_y_sus_horarios[sala][hora_escogida] -= compra
                             if compra > 4 :
-                                total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                                total = compra * 10000 * 0.9  
                                 break
                             else :
                                 total = (compra * 10000) 
@@ -481,7 +481,7 @@ while True:
                         else :
                             salas_y_sus_horarios[sala][hora_escogida] -= compra
                             if compra > 4 :
-                                total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                                total = compra * 10000 * 0.9  
                                 break
                             else :
                                 total = (compra * 10000) 
@@ -507,7 +507,7 @@ while True:
                         else :
                             salas_y_sus_horarios[sala][hora_escogida] -= compra
                             if compra > 4 :
-                                total = ((compra * 10000)-((10/(10000 * compra))*100)) 
+                                total = compra * 10000 * 0.9 
                                 break
                             else :
                                 total = (compra * 10000) 
@@ -516,7 +516,7 @@ while True:
         print("Estimado usuario, ingrese una opción válida. Inténtelo de nuevo.")
         
     subtotal = compra * 10000
-    (f"Subtotal: ${subtotal}")
+    print(f"Subtotal: ${subtotal}")
     if compra > 4:
         descuento = subtotal * 0.10 
         subtotal -= descuento 
