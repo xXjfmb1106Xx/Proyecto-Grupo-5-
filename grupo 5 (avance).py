@@ -139,7 +139,7 @@ while True:  # Bucle principal del programa, se repite hasta que el usuario deci
                 print("Inicio de sesión exitoso.")
                 break    # Sale del bucle al iniciar sesión correctamente
             else:
-                print("usuario incorrecto vuelva a ingresar su usuario")
+                print("usuario, el correo es incorrecto, inténtelo de nuevo.")
                 while usuario not in base_datos:     # Pide un correo válido registrado
                     usuario = input("ingrese su correo: ")
                 password = input("ingrese su contraseña: ")
@@ -202,7 +202,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
 
         if pelicula_escogida == "1":   
             nombre_pelicula_factura = "Fight club"    # Guarda el nombre para la factura o resumen
-            print(f"Hey usuario los horarios disponibles para esta funcion son: \n {Fight_Club}\n ")    # Muestra los horarios de Fight Club
+            print(f"\nHey usuario los horarios disponibles para esta funcion son: \n {Fight_Club}\n ")    # Muestra los horarios de Fight Club
             hora_escogida = round(float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): ")),2)    # Pide la hora y redondea a 2 decimales
 
             if hora_escogida in Fight_Club:    # Verifica si la hora ingresada está en los horarios válidos
@@ -231,7 +231,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                             
         elif pelicula_escogida == "2":   
             nombre_pelicula_factura = "F1"    # Guarda el nombre de la película para factura
-            print(f"Hey usuario, los horarios disponibles para esta función son: \n {F1}\n ")    # Muestra los horarios de F1
+            print(f"\nHey usuario, los horarios disponibles para esta función son: \n {F1}\n ")    # Muestra los horarios de F1
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita la hora en formato 24h
 
             if hora_escogida in F1:    # Verifica si la hora ingresada es válida
@@ -261,7 +261,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
 
         elif pelicula_escogida == "3":  
             nombre_pelicula_factura = "Destino final"    # Guarda el nombre de la película para factura
-            print(f"Hey usuario, los horarios disponibles para esta función son: \n {Destino_Final}\n ")    # Muestra horarios disponibles
+            print(f"\nHey usuario, los horarios disponibles para esta función son: \n {Destino_Final}\n ")    # Muestra horarios disponibles
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Pide la hora
 
             if hora_escogida in Destino_Final:    # Verifica si la hora es válida
@@ -291,7 +291,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
 
         elif pelicula_escogida == "4":    
             nombre_pelicula_factura = "El Lobo de Wall Street"    # Guarda el nombre para la factura
-            print(f"Hey usuario, los horarios disponibles para esta función son: \n {El_Lobo_de_Wall_Street}\n ")    # Muestra horarios disponibles
+            print(f"\nHey usuario, los horarios disponibles para esta función son: \n {El_Lobo_de_Wall_Street}\n ")    # Muestra horarios disponibles
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita la hora deseada
 
             if hora_escogida in El_Lobo_de_Wall_Street:    # Verifica si la hora es válida
@@ -321,7 +321,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
 
         elif pelicula_escogida == "5":   
             nombre_pelicula_factura = "Oppenheimer"    # Guarda el nombre para la factura
-            print(f"Hey usuario, los horarios disponibles para esta función son: \n {Oppenheimer}\n ")    # Muestra horarios disponibles
+            print(f"\nHey usuario, los horarios disponibles para esta función son: \n {Oppenheimer}\n ")    # Muestra horarios disponibles
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita la hora
 
             if hora_escogida in Oppenheimer:    # Verifica si la hora es válida
@@ -351,7 +351,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
         
         elif pelicula_escogida == "6":    
             nombre_pelicula_factura = "Barbie"    # Guarda el nombre para la factura
-            print(f"Hey usuario, los horarios disponibles para esta función son: \n {Barbie}\n ")    # Muestra horarios disponibles
+            print(f"\nHey usuario, los horarios disponibles para esta función son: \n {Barbie}\n ")    # Muestra horarios disponibles
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita la hora deseada
 
             if hora_escogida in Barbie:    # Verifica si la hora está en el diccionario
@@ -381,7 +381,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                             
         elif pelicula_escogida == "7":    
             nombre_pelicula_factura = "Interestelar"    # Guarda el nombre para la factura
-            print(f"Hey usuario, los horarios disponibles para esta función son: \n {interestelar}\n ")    # Muestra horarios disponibles
+            print(f"\nHey usuario, los horarios disponibles para esta función son: \n {interestelar}\n ")    # Muestra horarios disponibles
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita la hora deseada
 
             if hora_escogida in interestelar:    # Verifica si la hora es válida
@@ -411,7 +411,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
         
         elif pelicula_escogida == "8":    
             nombre_pelicula_factura = "No Mires Arriba"    # Guarda el nombre para la factura
-            print(f"Hey usuario, los horarios disponibles para esta función son: \n {No_Mires_Arriba}\n ")    # Muestra horarios disponibles
+            print(f"\nHey usuario, los horarios disponibles para esta función son: \n {No_Mires_Arriba}\n ")    # Muestra horarios disponibles
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita la hora deseada
 
             if hora_escogida in No_Mires_Arriba:    # Verifica si la hora ingresada es válida
@@ -441,7 +441,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                             
         elif pelicula_escogida == "9":    
             nombre_pelicula_factura = "Bird Box: a ciegas"    # Guarda el nombre para la factura
-            print(f"Hey usuario, los horarios disponibles para esta función son: \n {Birdbox_a_ciegas}\n ")    # Muestra horarios disponibles
+            print(f"\nHey usuario, los horarios disponibles para esta función son: \n {Birdbox_a_ciegas}\n ")    # Muestra horarios disponibles
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita la hora deseada
 
             if hora_escogida in Birdbox_a_ciegas:    # Verifica si la hora es válida
@@ -471,7 +471,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
 
         elif pelicula_escogida == "10":    
             nombre_pelicula_factura = "Scary Movie"    # Guarda el nombre de la película seleccionada
-            print(f"Hey usuario, los horarios disponibles para esta función son: \n {Scary_Movie}\n ")    # Muestra en pantalla los horarios de esta comedia/parodia
+            print(f"\nHey usuario, los horarios disponibles para esta función son: \n {Scary_Movie}\n ")    # Muestra en pantalla los horarios de esta comedia/parodia
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Captura la hora deseada por el usuario
 
             if hora_escogida in Scary_Movie:    # Verifica si esa hora está en cartelera para Scary Movie
@@ -501,7 +501,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                 
         elif pelicula_escogida == "11":    
             nombre_pelicula_factura = "Terrifier"    # Guarda el nombre de la película para la factura
-            print(f"Hey usuario, los horarios disponibles para esta función son: \n {Terrifier}\n ")    # Muestra al usuario los horarios disponibles
+            print(f"\nHey usuario, los horarios disponibles para esta función son: \n {Terrifier}\n ")    # Muestra al usuario los horarios disponibles
             print("Advertencia: Esta película contiene escenas fuertes.")    # Mensaje especial por ser de terror
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita al usuario la hora deseada
 
@@ -532,7 +532,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
 
         elif pelicula_escogida == "12":    
             nombre_pelicula_factura = "El Resplandor"    # Se guarda el nombre correcto para la factura
-            print(f"Hey usuario, los horarios disponibles para esta función son: \n {El_Resplandor}\n ")    # Muestra las funciones disponibles
+            print(f"\nHey usuario, los horarios disponibles para esta función son: \n {El_Resplandor}\n ")    # Muestra las funciones disponibles
             print("Prepárate para un clásico del suspenso.")    # Mensaje especial por el género
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita al usuario la hora deseada
 
@@ -563,7 +563,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
         
         elif pelicula_escogida == "13":    
             nombre_pelicula_factura = "Sonic 3"    # Guarda el título para la factura final
-            print(f"Hey usuario, los horarios disponibles para esta función son: \n {Sonic_3}\n ")    # Muestra las funciones disponibles
+            print(f"\nHey usuario, los horarios disponibles para esta función son: \n {Sonic_3}\n ")    # Muestra las funciones disponibles
             hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita el horario deseado
 
             if hora_escogida in Sonic_3:    # Verifica si esa hora está programada
