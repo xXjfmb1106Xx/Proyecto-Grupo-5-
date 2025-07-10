@@ -198,7 +198,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
         =========================================================
         """)      
         
-        pelicula_escogida = input("\n¿Qué película deseas ver? elije una opción (1-13): \n")    # Solicita al usuario una opción del 1 al 13
+        pelicula_escogida = input("\n¿Qué película deseas ver? elige una opción (1-13): \n")    # Solicita al usuario una opción del 1 al 13
 
         if pelicula_escogida == "1":   
             nombre_pelicula_factura = "Fight club"    # Guarda el nombre para la factura o resumen
