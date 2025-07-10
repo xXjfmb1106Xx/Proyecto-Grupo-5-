@@ -122,7 +122,7 @@ Sonic_3 = {
 while True:  # Bucle principal del programa, se repite hasta que el usuario decida salir
     print(""" ¡Bienvenido a CineMundo! \n 
     ====== MENÚ ====== \n 
-    1. Iniciar sesion.  \n  
+    1. Iniciar sesión.  \n  
     2. Crear cuenta.\n
     3. salir. \n""")  # Menú principal mostrado al usuario
 
@@ -194,7 +194,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
         - 13. Sonic 3 
         
         =========================================================
-        ========= ELIJE TU PELÍCULA FAVORITA Y DISFRUTA =========
+        ========= ELIGE TU PELÍCULA FAVORITA Y DISFRUTA =========
         =========================================================
         """)      
         
