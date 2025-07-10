@@ -130,11 +130,11 @@ while True:  # Bucle principal del programa, se repite hasta que el usuario deci
         opcion = input("Ingrese una de las opciones: ")
         
         if opcion == "1":    # Opción para iniciar sesión
-            usuario = input("ingrese su correo: ")
-            if usuario in base_datos:    # Si el usuario existe en la base de datos
-                password = input("ingrese su contraseña: ")
+            usuario = input("Ingrese su correo: ")
+            if usuario in base_datos:    # Si el correo existe en la base de datos
+                password = input("Ingrese su contraseña: ")
                 while password != base_datos[usuario]:    # Verifica que la contraseña coincida
-                    print("contraseña incorrecta")
+                    print("Contraseña incorrecta")
                     password = input("vuelva a ingresar su contraseña: ")
                 print("Inicio de sesión exitoso.")
                 break    # Sale del bucle al iniciar sesión correctamente
@@ -160,11 +160,12 @@ while True:  # Bucle principal del programa, se repite hasta que el usuario deci
             print("Cuenta creada exitosamente.")
             break    # Sale del bucle después de crear la cuenta
 
-        elif opcion == "3":    # Salir del programa
+        elif opcion == "3":     # Salir del programa
+            print("Has decidico salir del programa, hasta luego.")
             exit()
 
         else:     # Opción inválida
-            print("la opcion ingresada es invalida intentelo nuevamente")
+            print("La opcion ingresada es inválida inténtelo nuevamente")
     break     # Termina el bucle principal después de procesar la opción
 
 nombre = input("Ingrese el nombre de usuario: ")     # Solicita el nombre del usuario que ha iniciado sesión
