@@ -208,7 +208,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                 hora_escogida = round(float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): ")),2)    # Pide la hora y redondea a 2 decimales
 
                 if hora_escogida not in Fight_Club:
-                    print("la hora ingresada no esta disponible vuelva ha ingresar")
+                    print("La hora ingresada no esta disponible, vuelva a intentarlo.")
                 else:
                     break
             if hora_escogida in Fight_Club:    # Verifica si la hora ingresada está en los horarios válidos
@@ -242,7 +242,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                 hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita la hora en formato 24h
 
                 if hora_escogida not in F1 :
-                    print("la hora ingresada no esta disponible vuelva ha ingresar")
+                    print("La hora ingresada no esta disponible, vuelva a intentarlo.")
                 else:
                     break
             if hora_escogida in F1:    # Verifica si la hora ingresada es válida
@@ -277,7 +277,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                 hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Pide la hora
 
                 if hora_escogida not in Destino_Final:
-                    print("la hora ingresada no esta disponible vuelva ha ingresar")
+                    print("La hora ingresada no esta disponible, vuelva a intentarlo.")
                 else:
                     break 
             if hora_escogida in Destino_Final:    # Verifica si la hora es válida
@@ -312,7 +312,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                 hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita la hora deseada
 
                 if hora_escogida not in El_Lobo_de_Wall_Street:
-                    print("la hora ingresada no esta disponible vuelva ha ingresar")
+                    print("La hora ingresada no esta disponible, vuelva a intentarlo.")
                 else:
                     break
             if hora_escogida in El_Lobo_de_Wall_Street:    # Verifica si la hora es válida
@@ -347,7 +347,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                 hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita la hora
 
                 if hora_escogida not in Oppenheimer:
-                    print("la hora ingresada no esta disponible vuelva ha ingresar")
+                    print("La hora ingresada no esta disponible, vuelva a intentarlo.")
                 else:
                     break
             if hora_escogida in Oppenheimer:    # Verifica si la hora es válida
@@ -382,7 +382,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                 hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita la hora deseada
 
                 if hora_escogida not in Barbie:
-                    print("la hora ingresada no esta disponible vuelva ha ingresar")
+                    print("La hora ingresada no esta disponible, vuelva a intentarlo.")
                 else:
                     break
             if hora_escogida in Barbie:    # Verifica si la hora está en el diccionario
@@ -417,7 +417,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                 hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita la hora deseada
 
                 if hora_escogida not in interestelar:
-                    print("la hora ingresada no esta disponible vuelva ha ingresar")
+                    print("La hora ingresada no esta disponible, vuelva a intentarlo.")
                 else:
                     break
             if hora_escogida in interestelar:    # Verifica si la hora es válida
@@ -452,7 +452,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                 hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita la hora deseada
 
                 if hora_escogida not in No_Mires_Arriba:
-                    print("la hora ingresada no esta disponible vuelva ha ingresar")
+                    print("La hora ingresada no esta disponible, vuelva a intentarlo.")
                 else:
                     break
             if hora_escogida in No_Mires_Arriba:    # Verifica si la hora ingresada es válida
@@ -487,7 +487,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                 hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita la hora deseada
 
                 if hora_escogida not in Birdbox_a_ciegas:
-                    print("la hora ingresada no esta disponible vuelva ha ingresar")
+                    print("La hora ingresada no esta disponible, vuelva a intentarlo.")
                 else:
                     break
             if hora_escogida in Birdbox_a_ciegas:    # Verifica si la hora es válida
@@ -522,7 +522,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                 hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Captura la hora deseada por el usuario
 
                 if hora_escogida not in Fight_Club:
-                    print("la hora ingresada no esta disponible vuelva ha ingresar")
+                    print("La hora ingresada no esta disponible, vuelva a intentarlo.")
                 else:
                     break
             if hora_escogida in Scary_Movie:    # Verifica si esa hora está en cartelera para Scary Movie
