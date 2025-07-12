@@ -706,7 +706,7 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
         
     # Imprime la factura final con toda la información de la compra
     print(f"""
-    -------- FACTURA DEL CLIENTE --------
+    ------ FACTURA DEL CLIENTE ------
     
     Nombre del cliente: {nombre}
     Película: {nombre_pelicula_factura}
@@ -714,9 +714,9 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
     Sala: {sala}
     Asientos comprados: {compra}
     Precio unitario: $10.000 
-    total a pagar : {subtotal}
+    total a pagar : ${subtotal}
     
-    ------------------------------------ """) 
+    --------------------------------- """) 
     
     print("\n🍿 Esperamos que disfrutes tu función. ¡Nos vemos en la próxima película! 🍿") 
     break    # Sale del bucle principal después de generar la factura
