@@ -704,7 +704,6 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
         descuento = 0    #  No hay descuento si se compran 4 o menos entradas
         print("Descuento: $0")    #  Informa que no se aplicó ningún descuento
         
-    
     # Imprime la factura final con toda la información de la compra
     print(f"""
     -------- FACTURA DEL CLIENTE --------
