@@ -130,33 +130,49 @@ while True:  # Bucle principal del programa, se repite hasta que el usuario deci
         opcion = input("Ingrese una de las opciones: ")
         
         if opcion == "1":    # Opción para iniciar sesión
-            usuario = input("Ingrese su correo: ")
-            if usuario in base_datos:    # Si el correo existe en la base de datos
-                password = input("Ingrese su contraseña: ")
-                while password != base_datos[usuario]:    # Verifica que la contraseña coincida
-                    print("Contraseña incorrecta")
-                    password = input("vuelva a ingresar su contraseña: ")
-                print("Inicio de sesión exitoso.")
-                break    # Sale del bucle al iniciar sesión correctamente
-            else:
-                print("usuario, el correo es incorrecto, inténtelo de nuevo.")
-                while usuario not in base_datos:     # Pide un correo válido registrado
-                    usuario = input("ingrese su correo: ")
-                password = input("ingrese su contraseña: ")
-                while password != base_datos[usuario]:    # Verifica la contraseña ingresada
-                    print("contraseña incorrecta")
-                    password = input("vuelva a ingresar su contraseña: ")
-                print("Inicio de sesión exitoso.")
-                break    # Sale del bucle al iniciar sesión correctamente
+            correo = input("Ingrese su correo: ") 
+            while correo == "":    # Mientras el correo esté vacío
+                print("El correo no puede estar vacío.")
+                correo = input("Ingrese su correo: ")    # Pide el correo de nuevo
+
+            while correo not in base_datos:     # Mientras el correo no esté en la base de datos
+                print("El correo es incorrecto, inténtelo de nuevo.")
+                correo = input("Ingrese su correo: ")
+                while correo == "":    # Mientras el correo esté vacío
+                    print("El correo no puede estar vacío.")
+                    correo = input("Ingrese su correo: ")     # Pide al usuario que ingrese el correo de nuevo
+
+            # Si el correo es válido se pide la contraseña 
+            password = input("Ingrese su contraseña: ")
+            while password == "":    # Mientras la contraseña esté vacía
+                print("La contraseña no puede estar vacía.")
+                password = input("Ingrese su contraseña: ")    # Pide al usuario que ingrese la contraseña de nuevo
+
+            while password != base_datos[correo]:   # Mientras la contraseña sea diferente al valor asignado a la clave del correo 
+                print("Contraseña incorrecta")
+                password = input("Vuelva a ingresar su contraseña: ")    # Pide al usuario que ingrese la contraseña de nuevo 
+
+            print("Inicio de sesión exitoso.")
+            break  # Sale del bucle al iniciar sesión correctamente
             
         elif opcion == "2":     # Crear cuenta nueva
-            usuario = input("Ingrese su correo: ")
-            verificacion_correo = base_datos.keys()    # Obtiene todos los correos registrados
-            while usuario in verificacion_correo:    # Verifica si el correo ya existe
-                print("El correo ingresado ya está registrado ingrese un nuevo correo.")
-                usuario = input("Ingrese su correo: ")
+            correo = input("Ingrese su correo: ")    # Pide el correo al usuario
+            while correo == "" or correo in base_datos:    # Si en el correo hay un campo vacío o el correo ya está registrado
+                
+                # Si en el correo hay un campo vacío
+                if correo == "":
+                    print("El correo no puede estar vacío.")
+                # Si el correo ya está registrado
+                else:
+                    print("El correo ingresado ya está registrado ingrese un nuevo correo.")
+                correo = input("Ingrese su correo: ")
+
             contraseña = input("Ingrese su contraseña: ")
-            base_datos[usuario] = contraseña    # Guarda el nuevo usuario y su contraseña
+            while contraseña == "":    # Mientras la contraseña ingresada esté vacía
+                print("La contraseña no puede estar vacía.")
+                contraseña = input("Ingrese su contraseña: ")
+
+            base_datos[correo] = contraseña    # Guarda el nuevo usuario y su contraseña
             print("Cuenta creada exitosamente.")
             break    # Sale del bucle después de crear la cuenta
 
@@ -164,11 +180,15 @@ while True:  # Bucle principal del programa, se repite hasta que el usuario deci
             print("Has decidico salir del programa, hasta luego.")
             exit()
 
-        else:     # Opción inválida
+        else:     # Si ninguna de las otras condiciones se cumple
             print("La opcion ingresada es inválida inténtelo nuevamente")
     break     # Termina el bucle principal después de procesar la opción
 
-nombre = input("Ingrese el nombre de usuario: ")     # Solicita el nombre del usuario que ha iniciado sesión
+nombre = input("Ingrese el nombre de usuario: ")    # Solicita el nombre del usuario que ha iniciado sesión
+
+while nombre.strip() == "":    # .strip() elimina espacios al principio y al final. Si alguien escribe solo " " también se considera vacío.
+    print("El nombre de usuario no puede estar vacío.")
+    nombre = input("Ingrese el nombre de usuario: ")     
 
 while True:     # Bucle principal para mostrar cartelera y permitir seleccionar una película
     try:
