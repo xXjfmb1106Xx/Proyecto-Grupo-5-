@@ -88,7 +88,7 @@ Barbie = {
     3.25: "sala_4"      # 3:15 AM 
 }
 
-interestelar = {
+Interestelar = {
     14.15: "sala_3"     # 2:09 PM
 }
 
@@ -207,10 +207,11 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                 print(f"\nHey usuario los horarios disponibles para esta funcion son: \n {Fight_Club}\n ")    # Muestra los horarios de Fight Club
                 hora_escogida = round(float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): ")),2)    # Pide la hora y redondea a 2 decimales
 
-                if hora_escogida not in Fight_Club:
+                if hora_escogida not in Fight_Club:     # Si la hora ingresada por el usuario no está en los horarios 
                     print("La hora ingresada no esta disponible, vuelva a intentarlo.")
-                else:
+                else:     # Si está rompe el bucle y continua con el código
                     break
+                
             if hora_escogida in Fight_Club:    # Verifica si la hora ingresada está en los horarios válidos
                 sala = Fight_Club[hora_escogida]    # Obtiene la sala según la hora escogida
                 print(f"Has escogido ver 'Fight Club' a las {hora_escogida} en {sala}.")    # Confirma la selección al usuario
@@ -241,10 +242,11 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                 print(f"\nHey usuario, los horarios disponibles para esta función son: \n {F1}\n ")    # Muestra los horarios de F1
                 hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita la hora en formato 24h
 
-                if hora_escogida not in F1 :
+                if hora_escogida not in F1:     # Si la hora ingresada por el usuario no está en los horarios 
                     print("La hora ingresada no esta disponible, vuelva a intentarlo.")
-                else:
+                else:     # Si está rompe el bucle y continua con el código
                     break
+                
             if hora_escogida in F1:    # Verifica si la hora ingresada es válida
                 sala = F1[hora_escogida]    # Obtiene la sala según la hora
                 print(f"Has escogido ver 'F1' a las {hora_escogida} en {sala}.")    # Confirma la selección
@@ -276,10 +278,11 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                 print(f"\nHey usuario, los horarios disponibles para esta función son: \n {Destino_Final}\n ")    # Muestra horarios disponibles
                 hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Pide la hora
 
-                if hora_escogida not in Destino_Final:
+                if hora_escogida not in Destino_Final:     # Si la hora ingresada por el usuario no está en los horarios 
                     print("La hora ingresada no esta disponible, vuelva a intentarlo.")
-                else:
-                    break 
+                else:     # Si está rompe el bucle y continua con el código
+                    break
+                
             if hora_escogida in Destino_Final:    # Verifica si la hora es válida
                 sala = Destino_Final[hora_escogida]    # Obtiene la sala según la hora
                 print(f"Has escogido ver 'Destino Final' a las {hora_escogida} en {sala}.")    # Confirma al usuario
@@ -311,10 +314,11 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                 print(f"\nHey usuario, los horarios disponibles para esta función son: \n {El_Lobo_de_Wall_Street}\n ")    # Muestra horarios disponibles
                 hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita la hora deseada
 
-                if hora_escogida not in El_Lobo_de_Wall_Street:
+                if hora_escogida not in El_Lobo_de_Wall_Street:     # Si la hora ingresada por el usuario no está en los horarios 
                     print("La hora ingresada no esta disponible, vuelva a intentarlo.")
-                else:
+                else:     # Si está rompe el bucle y continua con el código
                     break
+                
             if hora_escogida in El_Lobo_de_Wall_Street:    # Verifica si la hora es válida
                 sala = El_Lobo_de_Wall_Street[hora_escogida]    # Obtiene la sala asignada
                 print(f"Has escogido ver 'El Lobo de Wall Street' a las {hora_escogida} en {sala}.")    # Confirma selección al usuario
@@ -346,10 +350,11 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                 print(f"\nHey usuario, los horarios disponibles para esta función son: \n {Oppenheimer}\n ")    # Muestra horarios disponibles
                 hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita la hora
 
-                if hora_escogida not in Oppenheimer:
+                if hora_escogida not in Oppenheimer:     # Si la hora ingresada por el usuario no está en los horarios 
                     print("La hora ingresada no esta disponible, vuelva a intentarlo.")
-                else:
+                else:     # Si está rompe el bucle y continua con el código
                     break
+                
             if hora_escogida in Oppenheimer:    # Verifica si la hora es válida
                 sala = Oppenheimer[hora_escogida]    # Obtiene la sala asignada
                 print(f"Has escogido ver 'Oppenheimer' a las {hora_escogida} en {sala}.")    # Confirma al usuario
@@ -381,10 +386,11 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                 print(f"\nHey usuario, los horarios disponibles para esta función son: \n {Barbie}\n ")    # Muestra horarios disponibles
                 hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita la hora deseada
 
-                if hora_escogida not in Barbie:
+                if hora_escogida not in Barbie:     # Si la hora ingresada por el usuario no está en los horarios 
                     print("La hora ingresada no esta disponible, vuelva a intentarlo.")
-                else:
+                else:     # Si está rompe el bucle y continua con el código
                     break
+                
             if hora_escogida in Barbie:    # Verifica si la hora está en el diccionario
                 sala = Barbie[hora_escogida]    # Obtiene la sala correspondiente
                 print(f"Has escogido ver 'Barbie' a las {hora_escogida} en {sala}.")    # Confirma selección al usuario
@@ -413,15 +419,16 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
         elif pelicula_escogida == "7":    
             while True : #se inicia un bucle para en caso de ingresar una hora no valida vuelva a solicitar la hora
                 nombre_pelicula_factura = "Interestelar"    # Guarda el nombre para la factura
-                print(f"\nHey usuario, los horarios disponibles para esta función son: \n {interestelar}\n ")    # Muestra horarios disponibles
+                print(f"\nHey usuario, los horarios disponibles para esta función son: \n {Interestelar}\n ")    # Muestra horarios disponibles
                 hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita la hora deseada
 
-                if hora_escogida not in interestelar:
+                if hora_escogida not in Interestelar:     # Si la hora ingresada por el usuario no está en los horarios 
                     print("La hora ingresada no esta disponible, vuelva a intentarlo.")
-                else:
+                else:     # Si está rompe el bucle y continua con el código
                     break
-            if hora_escogida in interestelar:    # Verifica si la hora es válida
-                sala = interestelar[hora_escogida]    # Obtiene la sala correspondiente
+                
+            if hora_escogida in Interestelar:    # Verifica si la hora es válida
+                sala = Interestelar[hora_escogida]    # Obtiene la sala correspondiente
                 print(f"Has escogido ver 'Interestelar' a las {hora_escogida} en {sala}.")    # Confirma la selección
                 asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida]    # Consulta asientos disponibles
 
@@ -451,10 +458,11 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                 print(f"\nHey usuario, los horarios disponibles para esta función son: \n {No_Mires_Arriba}\n ")    # Muestra horarios disponibles
                 hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita la hora deseada
 
-                if hora_escogida not in No_Mires_Arriba:
+                if hora_escogida not in No_Mires_Arriba:     # Si la hora ingresada por el usuario no está en los horarios 
                     print("La hora ingresada no esta disponible, vuelva a intentarlo.")
-                else:
+                else:     # Si está rompe el bucle y continua con el código
                     break
+                
             if hora_escogida in No_Mires_Arriba:    # Verifica si la hora ingresada es válida
                 sala = No_Mires_Arriba[hora_escogida]    # Obtiene la sala correspondiente
                 print(f"Has escogido ver 'No mires arriba' a las {hora_escogida} en {sala}.")    # Confirma la selección
@@ -486,10 +494,11 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                 print(f"\nHey usuario, los horarios disponibles para esta función son: \n {Birdbox_a_ciegas}\n ")    # Muestra horarios disponibles
                 hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita la hora deseada
 
-                if hora_escogida not in Birdbox_a_ciegas:
+                if hora_escogida not in Birdbox_a_ciegas:     # Si la hora ingresada por el usuario no está en los horarios 
                     print("La hora ingresada no esta disponible, vuelva a intentarlo.")
-                else:
+                else:     # Si está rompe el bucle y continua con el código
                     break
+                
             if hora_escogida in Birdbox_a_ciegas:    # Verifica si la hora es válida
                 sala = Birdbox_a_ciegas[hora_escogida]    # Obtiene la sala correspondiente
                 print(f"Has escogido ver 'Bird Box: a ciegas' a las {hora_escogida} en {sala}.")    # Corrige el nombre mostrado
@@ -521,10 +530,11 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                 print(f"\nHey usuario, los horarios disponibles para esta función son: \n {Scary_Movie}\n ")    # Muestra en pantalla los horarios de esta comedia/parodia
                 hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Captura la hora deseada por el usuario
 
-                if hora_escogida not in Fight_Club:
+                if hora_escogida not in Scary_Movie:     # Si la hora ingresada por el usuario no está en los horarios 
                     print("La hora ingresada no esta disponible, vuelva a intentarlo.")
-                else:
+                else:     # Si está rompe el bucle y continua con el código
                     break
+                
             if hora_escogida in Scary_Movie:    # Verifica si esa hora está en cartelera para Scary Movie
                 sala = Scary_Movie[hora_escogida]    # Obtiene la sala asignada a esa hora
                 print(f"Has escogido ver 'Scary Movie' a las {hora_escogida} en {sala}.")    # Muestra al usuario su selección final
@@ -557,10 +567,11 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                 print("Advertencia: Esta película contiene escenas fuertes.")    # Mensaje especial por ser de terror
                 hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita al usuario la hora deseada
 
-                if hora_escogida not in Terrifier:
-                    print("la hora ingresada no esta disponible vuelva ha ingresar")
-                else:
+                if hora_escogida not in Terrifier:     # Si la hora ingresada por el usuario no está en los horarios 
+                    print("La hora ingresada no esta disponible, vuelva a intentarlo.")
+                else:     # Si está rompe el bucle y continua con el código
                     break
+                
             if hora_escogida in Terrifier:    # Verifica si esa hora está disponible para la película
                 sala = Terrifier[hora_escogida]    # Obtiene la sala correspondiente
                 print(f"Has escogido ver 'Terrifier' a las {hora_escogida} en {sala}.")    # Muestra un resumen de la elección del usuario
@@ -593,10 +604,11 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                 print("Prepárate para un clásico del suspenso.")    # Mensaje especial por el género
                 hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita al usuario la hora deseada
 
-                if hora_escogida not in El_Resplandor:
-                    print("la hora ingresada no esta disponible vuelva ha ingresar")
-                else:
+                if hora_escogida not in El_Resplandor:     # Si la hora ingresada por el usuario no está en los horarios 
+                    print("La hora ingresada no esta disponible, vuelva a intentarlo.")
+                else:     # Si está rompe el bucle y continua con el código
                     break
+                
             if hora_escogida in El_Resplandor:    # Verifica si esa hora está disponible
                 sala = El_Resplandor[hora_escogida]    # Obtiene la sala asignada a esa hora
                 print(f"Has escogido ver 'El Resplandor' a las {hora_escogida} en {sala}.")    # Confirmación de la selección
@@ -628,10 +640,11 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
                 print(f"\nHey usuario, los horarios disponibles para esta función son: \n {Sonic_3}\n ")    # Muestra las funciones disponibles
                 hora_escogida = float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): "))    # Solicita el horario deseado
 
-                if hora_escogida not in Sonic_3:
-                    print("la hora ingresada no esta disponible vuelva ha ingresar")
-                else:
+                if hora_escogida not in Sonic_3:     # Si la hora ingresada por el usuario no está en los horarios 
+                    print("La hora ingresada no esta disponible, vuelva a intentarlo.")
+                else:     # Si está rompe el bucle y continua con el código
                     break
+                
             if hora_escogida in Sonic_3:    # Verifica si esa hora está programada
                 sala = Sonic_3[hora_escogida]    # Asigna la sala correspondiente
                 print(f"Has escogido ver 'Sonic 3' a las {hora_escogida} en {sala}.")    # Confirmación visual al usuario
