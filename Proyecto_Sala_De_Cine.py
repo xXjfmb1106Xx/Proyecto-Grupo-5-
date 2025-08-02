@@ -1,21 +1,24 @@
-# Diccionario que contiene los usuarios registrados en el sistema
-base_datos = {"test@gmail.com": "qwerty"}  # Formato: correo electrónico : contraseña
+# Diccionario que contiene los usuarios registrados en el sistema (Base de datos)
+base_datos = {"test@gmail.com": "qwerty"}  # Su estructura es: {correo electrónico : contraseña}.
 
+# En este caso, ya hay un usuario registrado predeterminado con el correo "test@gmail.com" y la contraseña "qwerty" para hacer testing en el programa.
+
+# Diccionario con las películas disponibles y su duración 
 peliculas_en_cartelera_y_su_duracion = {    
     "Fight Club" : 2.19,                   
     "For F1" : 2.19,                        
     "Destino Final Bloodlines" : 1.40,      
     "El Lobo de Wall Street" : 3,           
     "Oppenheimer" : 3,                      
-    "Barbie" : 1.54,                        
-    "Interestelar" : 2.49,                  # Diccionario con las películas disponibles y su duración en horas
+    "Barbie" : 1.54,                                         
+    "Interestelar" : 2.49,         
     "No mires arriba" : 2.25,
     "Birdbox a ciegas" : 2.4,
     "Scary Movie" : 1.28,
     "Terrifier" : 2.5,
     "El resplandor" : 2.26,
     "Sonic 3" : 1.50
-}
+}   # La clave representa el nombre de la película y el valor representa la duración en horas.
 
 # Diccionario con los horarios y sillas disponibles para las Salas
 hora_y_sillas_disponibles_sala1 = {    # Horarios y sillas para la Sala 1                  
@@ -24,7 +27,9 @@ hora_y_sillas_disponibles_sala1 = {    # Horarios y sillas para la Sala 1
     15 : 96,      # 3:00 pm        # Horarios (en horas 24h) y sillas disponibles (96) para cada sala
     17.35 : 96,   # 5:21 pm
     18.55 : 96    # 6:33 pm
-}
+}  
+# La clave representa la hora en formato 24 horas (como número decimal), y el valor representa cuántas sillas están disponibles (96 en cada horario).
+
 
 hora_y_sillas_disponibles_sala2 = {    # Horarios y sillas para la Sala 2
     11 : 96,      # 11:00 AM
@@ -51,72 +56,77 @@ hora_y_sillas_disponibles_sala4 = {    # Horarios y sillas para la Sala 4
     23.10: 96     # 11:06 PM
 }
 
+# Diccionario que asocia cada sala con sus respectivos horarios y sillas disponibles
+# La clave es el nombre de la Sala y el valor es la variable con el diccionario de los horarios
 salas_y_sus_horarios = {                       
     "sala_1" : hora_y_sillas_disponibles_sala1,
-    "sala_2" : hora_y_sillas_disponibles_sala2,  # Diccionario que asocia cada sala con sus respectivos horarios y sillas disponibles
+    "sala_2" : hora_y_sillas_disponibles_sala2,  
     "sala_3" : hora_y_sillas_disponibles_sala3,
     "sala_4" : hora_y_sillas_disponibles_sala4 
 }
 
 # Diccionarios que indican en qué horarios y en qué sala se proyecta cada película
-# Formato: hora (float) : sala (string)
+# Formato del diccionario: hora (como número decimal) : sala (como texto)
 
 Fight_Club = { 
-    17.35: "sala_1",    # 5:21 PM
-    18.55: "sala_4"     # 6:33 PM
+    17.35: "sala_1",    # A las 5:21 PM se proyecta en la sala 1
+    18.55: "sala_4"     # A las 6:33 PM se proyecta en la sala 4
 }
 
 F1 = {
-    17.20: "sala_3"     # 5:12 PM
+    17.20: "sala_3"     # A las 5:12 PM se proyecta en la sala 3
 }
 
 Destino_Final = { 
-    13.05: "sala_1",    # 1:03 PM
-    20.25: "sala_2"     # 8:15 PM
+    13.05: "sala_1",    # A la 1:03 PM en la sala 1
+    20.25: "sala_2"     # A las 8:15 PM en la sala 2
 }
 
 El_Lobo_de_Wall_Street = {
-    20.10: "sala_4"     # 8:06 PM
+    20.10: "sala_4"     # A las 8:06 PM en la sala 4
 }
 
 Oppenheimer = {
-    11: "sala_3"        # 11:00 AM
+    11: "sala_3"        # A las 11:00 AM en la sala 3
 }
 
 Barbie = {
-    15: "sala_1",       # 3:00 PM
-    15.25: "sala_4"      # 3:25 pm 
+    15: "sala_1",       # A las 3:00 PM en la sala 1
+    15.25: "sala_4"     # A las 3:25 PM en la sala 4
 }
 
 Interestelar = {
-    14.15: "sala_3"     # 2:09 PM
+    14.15: "sala_3"     # A las 2:09 PM en la sala 3
 }
 
 No_Mires_Arriba = { 
-    17.45: "sala_2"     # 5:27 PM
+    17.45: "sala_2"     # A las 5:27 PM en la sala 2
 }
 
 Birdbox_a_ciegas = {
-    12.45: "sala_2"     # 12:27 PM
+    12.45: "sala_2"     # A las 12:27 PM en la sala 2
 }
 
 Scary_Movie = {
-    11: "sala_2",       # 11:00 AM
-    20.10: "sala_3"     # 8:06 PM
+    11: "sala_2",       # A las 11:00 AM en la sala 2
+    20.10: "sala_3"     # A las 8:06 PM en la sala 3
 }
 
 Terrifier = {
-    13.05: "sala_4"     # 1:03 PM
+    13.05: "sala_4"     # A la 1:03 PM en la sala 4
 }
 
 El_Resplandor = { 
-    15: "sala_2"        # 3:00 PM
+    15: "sala_2"        # A las 3:00 PM en la sala 2
 }
 
 Sonic_3 = { 
-    11: "sala_1",       # 11:00 AM
-    11.1: "sala_4"      # 11:06 AM
+    11: "sala_1",       # A las 11:00 AM en la sala 1
+    11.1: "sala_4"      # A las 11:06 AM en la sala 4
 }
+
+# Diccionario que asigna un número (como texto) a cada película
+# Esto se usa para que el usuario pueda seleccionar una película escribiendo un número
 
 numerosapelicula = {
     "1" : Fight_Club,
@@ -132,9 +142,9 @@ numerosapelicula = {
     "11" : Terrifier,
     "12" : El_Resplandor,
     "13" : Sonic_3
-}
+}     
 
-while True:  # Bucle principal del programa, se repite hasta que el usuario decida salir
+while True:  # Bucle principal del programa, se repite hasta que el usuario decida salir por su cuenta
     print(""" ¡Bienvenido a CineMundo! \n 
     ====== MENÚ ====== \n 
     1. Iniciar sesión.  \n  
@@ -142,14 +152,14 @@ while True:  # Bucle principal del programa, se repite hasta que el usuario deci
     3. salir. \n""")  # Menú principal mostrado al usuario
 
     while True:  # Bucle para manejar la opción elegida por el usuario
-        opcion = input("Ingrese una de las opciones: ")
+        opcion = input("Ingrese una de las opciones: ") # Pide al usuario que ingrese una opcion (1/2/3)
         
         if opcion == "1":    # Opción para iniciar sesión
             correo = input("Ingrese su correo: ") 
             while correo == "":    # Mientras el correo esté vacío
                 print("El correo no puede estar vacío.")
                 correo = input("Ingrese su correo: ")    # Pide el correo de nuevo
-
+            
             while correo not in base_datos:     # Mientras el correo no esté en la base de datos
                 print("El correo es incorrecto, inténtelo de nuevo.")
                 correo = input("Ingrese su correo: ")
