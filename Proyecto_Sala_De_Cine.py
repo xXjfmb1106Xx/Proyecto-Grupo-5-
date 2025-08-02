@@ -168,14 +168,18 @@ while True:  # Bucle principal del programa, se repite hasta que el usuario deci
                     correo = input("Ingrese su correo: ")     # Pide al usuario que ingrese el correo de nuevo
 
             # Si el correo es válido se pide la contraseña 
-            password = input("Ingrese su contraseña: ")
-            while password == "":    # Mientras la contraseña esté vacía
-                print("La contraseña no puede estar vacía.")
-                password = input("Ingrese su contraseña: ")    # Pide al usuario que ingrese la contraseña de nuevo
+            while True:
+                password = input("Ingrese su contraseña: ")
 
-            while password != base_datos[correo]:   # Mientras la contraseña sea diferente al valor asignado a la clave del correo 
-                print("Contraseña incorrecta")
-                password = input("Vuelva a ingresar su contraseña: ")    # Pide al usuario que ingrese la contraseña de nuevo 
+                # Si la contraseña está vacía
+                if password == "":
+                    print("La contraseña no puede estar vacía.")
+                    
+                elif password != base_datos[correo]:   # Si la contraseña es incorrecta
+                    print("Contraseña incorrecta")
+                    
+                else:
+                    break    # Contraseña válida, salir del bucle
 
             print("Inicio de sesión exitoso.")
             break  # Sale del bucle al iniciar sesión correctamente
@@ -202,11 +206,11 @@ while True:  # Bucle principal del programa, se repite hasta que el usuario deci
             break    # Sale del bucle después de crear la cuenta
 
         elif opcion == "3":     # Salir del programa
-            print("Has decidico salir del programa, hasta luego.")
+            print("Has decidico salir, Gracias por usar nuestro programa.")
             exit()
 
         else:     # Si ninguna de las otras condiciones se cumple
-            print("La opcion ingresada es inválida inténtelo nuevamente")
+            print("La opcion ingresada es inválida inténtelo nuevamente.")
     break     # Termina el bucle principal después de procesar la opción
 
 nombre = input("Ingrese el nombre de usuario: ")    # Solicita el nombre del usuario que ha iniciado sesión
@@ -244,62 +248,95 @@ while True:     # Bucle principal para mostrar cartelera y permitir seleccionar 
     =========================================================
     """)      
     
+    # str es una función de Python que convierte un valor en una cadena de texto (string).
     pelicula_escogida = str(input("\n¿Qué película deseas ver? elige una opción (1-13): \n"))    # Solicita al usuario una opción del 1 al 13
-    while True :
-        if pelicula_escogida not in numerosapelicula.keys():
-            print ("la opcion ingresada no esta entre las opciones disponibles intentelo nuevamente")
-            pelicula_escogida = input("\n¿Qué película deseas ver? elige una opción (1-13): \n")
+
+    while True:    # Inicia un bucle que repetirá la pregunta hasta que se ingrese una opción válida
+
+        if pelicula_escogida not in numerosapelicula.keys():    # Verifica si la opción no está entre las permitidas
+            print("La opción ingresada no está entre las opciones disponibles. Inténtelo nuevamente.")  # Muestra mensaje de error
+            pelicula_escogida = input("\n¿Qué película deseas ver? elige una opción (1-13): \n")        # Vuelve a pedir la opción al usuario
         else:
-            break
-    nombre_pelicula = list(peliculas_en_cartelera_y_su_duracion.keys())[int(pelicula_escogida) - 1]
-    print(f"\nHey {nombre} los horarios disponibles para esta funcion son: \n {numerosapelicula[pelicula_escogida]}\n ")    # Muestra los horarios de Fight Club
-    hora_escogida = round(float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): ")),2)    # Pide la hora y redondea a 2 decimales
-    while True:
-        if hora_escogida not in numerosapelicula[pelicula_escogida]:     # Si la hora ingresada por el usuario no está en los horarios 
-            print("La hora ingresada no esta disponible, vuelva a intentarlo.")
-            hora_escogida = round(float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): ")),2)
-        else:     # Si está rompe el bucle y continua con el código
-            break
-    
-    sala = numerosapelicula[pelicula_escogida][hora_escogida]   # Obtiene la sala según la hora escogida
-    print(f"Has escogido ver '{nombre_pelicula}' a las {hora_escogida} en {sala}.")    # Confirma la selección al usuario
-    asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida]    
-    if asientos_disponibles <= 0:    # Si ya no hay asientos disponibles
-        print ("no quedan mas sillas disponibles")    # Informa al usuario
-        break    # Sale del bucle
-    else:    # Si hay asientos disponibles
-        while True:    # Bucle para validar la cantidad de asientos a comprar
-            print(f"Asientos disponibles: {asientos_disponibles}")    # Muestra cuántos asientos hay
-            compra = int(input("cuantos asientos deseas comprar?: "))    # Pide la cantidad a comprar
-            if compra > asientos_disponibles or compra < 1:    # Verifica que la cantidad sea válida
-                print("la cantidad seleccionada no es compatible, inténtelo nuevamente.")    # Error si supera o es menor a 1
-            else:
-                salas_y_sus_horarios[sala][hora_escogida] -= compra    # Resta los asientos comprados del total disponible
-                break
-    subtotal = compra * 10000    #  Calcula el precio total sin descuento
-    print(f"Subtotal: ${subtotal}")    #  Muestra el subtotal al usuario
-    
-    if compra > 4:    
-        descuento = subtotal * 0.10    #  Aplica un 10% de descuento por más de 4 entradas
-        subtotal -= descuento    #  Resta el descuento al subtotal
-        print(f"Descuento (10%): -${int(descuento)}")    #  Muestra el descuento aplicado como número entero
-    else:    
-        descuento = 0    #  No hay descuento si se compran 4 o menos entradas
-        print("Descuento: $0")    #  Informa que no se aplicó ningún descuento
+            break   # Si la opción es válida, sale del bucle
         
+    # Convierte la opción elegida en entero, le resta 1 porque los índices empiezan en 0,
+    # y accede a la lista de nombres del diccionario 'peliculas_en_cartelera_y_su_duracion'.
+    nombre_pelicula = list(peliculas_en_cartelera_y_su_duracion.keys())[int(pelicula_escogida) - 1]
+
+    # Muestra los horarios disponibles para la película elegida
+    print(f"\nHey {nombre} los horarios disponibles para esta función son: \n {numerosapelicula[pelicula_escogida]}\n ")
+
+    # Pide al usuario que ingrese la hora deseada y la redondea a 2 decimales
+    hora_escogida = round(float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): ")), 2)
+
+    # Bucle que se repite mientras la hora ingresada no sea válida
+    while True:
+        if hora_escogida not in numerosapelicula[pelicula_escogida]:
+            print("La hora ingresada no está disponible, vuelva a intentarlo.")
+            hora_escogida = round(float(input("¿A qué hora desea ver la película? (ingrese el horario en formato 24 horas): ")), 2)
+        else:
+            break # Finaliza el bucle
+    
+    # Obtiene la sala según la hora escogida para esa película
+    sala = numerosapelicula[pelicula_escogida][hora_escogida]
+
+    # Muestra un mensaje confirmando la película, hora y sala seleccionadas
+    print(f"Has escogido ver '{nombre_pelicula}' a las {hora_escogida} en {sala}.")
+
+    # Consulta cuántos asientos quedan disponibles en esa sala y hora
+    asientos_disponibles = salas_y_sus_horarios[sala][hora_escogida]
+
+    # Verifica si ya no hay asientos
+    if asientos_disponibles <= 0:
+        print("No quedan más sillas disponibles.")
+        break
+
+    else:
+        # Bucle para asegurarse de que el usuario elija una cantidad válida de asientos
+        while True:
+            print(f"Asientos disponibles: {asientos_disponibles}")
+            compra = int(input("¿Cuántos asientos deseas comprar?: "))
+
+            # Valida que la cantidad esté entre 1 y los disponibles
+            if compra > asientos_disponibles or compra < 1:
+                print("La cantidad seleccionada no es compatible, inténtelo nuevamente.")
+            else:
+                # Resta los asientos comprados del total disponible
+                salas_y_sus_horarios[sala][hora_escogida] -= compra
+                break
+
+            
+    # Calcula el precio total sin aplicar descuento (cada entrada cuesta $10.000)
+    subtotal = compra * 10000
+    print(f"Subtotal: ${subtotal}")
+
+    # Aplica un descuento del 10% si se compran más de 4 entradas
+    if compra > 4:
+        descuento = subtotal * 0.10
+        subtotal -= descuento
+        print(f"Descuento (10%): -${int(descuento)}")
+    else:
+        descuento = 0
+        print("Descuento: $0")
+
     # Imprime la factura final con toda la información de la compra
+    
+     # Imprime la factura final con todos los datos de la compra
     print(f"""
     ------ FACTURA DEL CLIENTE ------
-    
+
     Nombre del cliente: {nombre}
     Película: {nombre_pelicula}
     Hora: {hora_escogida}
     Sala: {sala}
     Asientos comprados: {compra}
-    Precio unitario: $10.000 
-    total a pagar : ${subtotal}
-    
-    --------------------------------- """) 
-    
-    print("\n🍿 Esperamos que disfrutes tu función. ¡Nos vemos en la próxima película! 🍿") 
+    Precio unitario: $10.000
+    Total a pagar: ${int(subtotal)}
+
+    ---------------------------------
+    """)
+
+    # Mensaje de despedida para el cliente
+    print("\n🍿 Esperamos que disfrutes tu función. ¡Nos vemos en la próxima película! 🍿")
+
     break    # Sale del bucle principal después de generar la factura
